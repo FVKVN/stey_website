@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+
+/* Imports
+   ========================================================================== */
+@import '../../../assets/scss/imports';
+
+
+/* Overlay
+   ========================================================================== */
+.Overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: $zindex-modal;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba($color-greyscale-000, .75);
+    opacity: 0;
+
+    transition: opacity .5s ease-in-out;
+
+    &.ReactModal__Overlay--after-open {
+        opacity: 1;
+    }
+
+    &.ReactModal__Overlay--before-open {
+        opacity: 0;
+    }
+}
+
+
+/* Dialog
+   ========================================================================== */
+.modal {
+    position: relative;
+    z-index: #{$zindex-modal + 1};
+
+    width: 760px;
+    height: auto;
+    max-height: calc(100vh - #{spacing(lg)});
+    max-width: calc(100vw - #{spacing(lg)});
+    margin: 0 auto;
+    overflow: auto;
+
+    background: $color-greyscale-300;
+    box-shadow: 30px 30px 40px rgba($color-greyscale-000, .15);
+
+    outline: none;
+
+    color: $color-greyscale-200;
+
+    .modal__content {
+        position: relative;
+
+        max-height: 100%;
+        padding: spacing(xl);
+
+        outline: none;
+
+        .modal__title {
+            margin-top: 0;
+
+            text-align: center;
+        }
+    }
+
+    &.wide {
+        @media (min-width: $screen-md-min) {
+            width: 768px;
+        }
+
+        @media (min-width: $screen-lg-min) {
+            width: 992px;
+        }
+    }
+
+    @media (min-width: $screen-xs-min) {
+        .modal__content {
+            padding: spacing(lg) spacing(xxl);
+        }
+    }
+
+    @media (min-width: $screen-md-min) {
+        max-width: calc(100% - #{spacing(xl)});
+    }
+}
+
+.modal__header {
+    position: sticky;
+    top: spacing(md);
+    right: spacing(md);
+    z-index: 2;
+
+    flex: 0 0 auto;
+
+    .modal__close-button {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        padding: spacing(md);
+
+        background: transparent;
+
+        border: 0;
+
+        color: $color-greyscale-000;
+
+        transition: color .3s ease;
+
+        @include hover() {
+            background: transparent;
+
+            color: $color-greyscale-100;
+        }
+
+        > svg {
+            width: 1rem;
+
+            fill: currentColor;
+        }
+    }
+}

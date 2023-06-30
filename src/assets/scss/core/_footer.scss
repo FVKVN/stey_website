@@ -1,0 +1,23 @@
+/* ==========================================================================
+   footer
+   ========================================================================== */
+
+.main-footer {
+    position: sticky;
+    z-index: 0;
+    bottom: 0;
+
+    padding: 3rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: .8vw;
+}
+
+.main-footer__text {
+    margin: 0;
+
+    font-size: .8vw;
+}

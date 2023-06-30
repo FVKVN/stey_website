@@ -1,0 +1,18 @@
+/* ==========================================================================
+   buttons
+   ========================================================================== */
+
+@mixin button-reset {
+    padding: 0;
+
+    background: none;
+    box-shadow: none;
+
+    border-radius: 0;
+    border: none;
+
+    text-decoration: none;
+    line-height: 1;
+
+    cursor: pointer;
+}

@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Core - Base
+   ========================================================================== */
+
+/* Box model
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+/* Html & body
+   ========================================================================== */
+
+// expose css variables, makes it possible to change them via js, i.e for the detail pages
+// where the colors are swapped, @todo: check if this is usefull
+
+:root {
+}
+
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    height: 100vh;
+    width: 100vw;
+    padding: 3rem;
+    overflow: hidden;
+
+    background: $color-greyscale-300;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow-y: auto;
+
+    background-color: $color-greyscale-200;
+
+    font-size: 10px;
+}

@@ -1,0 +1,126 @@
+/* ==========================================================================
+   forms
+   ========================================================================== */
+
+.form-group-wrapper {
+    + .form-group-wrapper,
+    + .form-group {
+        margin-top: spacing(md);
+    }
+
+    @media (min-width: $screen-sm-min) {
+        display: flex;
+
+        .form-group {
+            flex: 1;
+            margin: 0;
+        }
+
+        .form-group + .form-group {
+            margin: 0 0 0 spacing(md);
+        }
+    }
+}
+
+.form-group {
+    position: relative;
+
+    display: block;
+    margin: spacing(md) 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+
+    &--more-margin {
+        margin-top: spacing(xl);
+    }
+
+    &--has-error {
+        .form-control {
+            border-color: $color-error;
+        }
+
+        .form-label {
+            color: $color-error;
+        }
+    }
+}
+
+.form-label {
+    display: block;
+
+    font-size: 15px;
+    font-weight: $font-weight--medium;
+}
+
+.form-label--file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    padding: 20px;
+
+    background: $color-greyscale-100;
+
+    border: 1px solid $color-greyscale-300;
+
+    .form-control {
+        display: none;
+    }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    padding: 20px;
+
+    background: $color-greyscale-100;
+
+    border: 1px solid $color-greyscale-300;
+
+    text-transform: uppercase;
+    font-size: 15px;
+    color: $color-greyscale-300;
+
+    &:focus-visible {
+        outline: 2px dashed $color-focus;
+        outline-offset: 2px;
+
+        text-decoration: none;
+    }
+
+    @include nonKeyboardfocus() {
+        outline: none;
+    }
+}
+
+.form-error {
+    margin: spacing(sm) 0 0 0;
+
+    color: $color-error;
+    font-size: 13px;
+}
+
+.form-label--file__content {
+    text-align: center;
+}
+
+.form-label--file__file-name {
+    display: block;
+    margin-bottom: spacing(sm);
+}
+
+
+.form-control-wrapper {
+    position: relative;
+}

@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Config - Media-queries
+
+   This file is exclusively intended for setting up variables
+   Never add styles directly to this file
+   ========================================================================== */
+
+/* Media queries breakpoints
+   ========================================================================== */
+$screen-xs-min:             480px;
+$screen-sm-min:             768px;
+$screen-md-min:             992px;
+$screen-lg-min:             1200px;
+$screen-xl-min:             1400px;
+$screen-xxl-min:            2200px;
+
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xxs-max:             ($screen-xs-min - 1);
+$screen-xs-max:             ($screen-sm-min - 1);
+$screen-sm-max:             ($screen-md-min - 1);
+$screen-md-max:             ($screen-lg-min - 1);
+$screen-lg-max:             ($screen-xl-min - 1);
+$screen-xl-max:             ($screen-xxl-min - 1);

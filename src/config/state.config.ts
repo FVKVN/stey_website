@@ -1,0 +1,4 @@
+export const LOCAL_STORAGE_KEY = 'STEY_WEBAPP';
+export const LOCAL_STORAGE_TOKEN_KEY = `${LOCAL_STORAGE_KEY}__TOKEN`;
+export const LOCAL_STORAGE_CONSENT_KEY = `${LOCAL_STORAGE_KEY}__cookie_consent`;
+export const LOCAL_STORAGE_ALLOW_ANALYTICS_KEY = `${LOCAL_STORAGE_KEY}__allow_analytics`;

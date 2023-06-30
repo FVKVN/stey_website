@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Mixins - States
+   ========================================================================== */
+
+/* Hover (only on bigger screens)
+   ========================================================================== */
+@mixin hover {
+    @media (min-width: $screen-md-min) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin hover-focus {
+    &:focus {
+        @content;
+    }
+
+    @media (min-width: $screen-md-min) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin hover-focus-active {
+    &:focus,
+    &:active {
+        @content;
+    }
+
+    @media (min-width: $screen-md-min) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+/* Focus (non keyboard focus) - https://github.com/WICG/focus-visible
+   ========================================================================== */
+@mixin nonKeyboardfocus {
+    .js-focus-visible :focus:not(.focus-visible) {
+        @content;
+    }
+}

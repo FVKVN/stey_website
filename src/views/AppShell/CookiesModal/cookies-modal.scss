@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Cookies modal
+   ========================================================================== */
+
+/* Imports
+   ========================================================================== */
+@import "../../../assets/scss/imports";
+
+.CookiesModal {
+    color: $color-text;
+    font-size: 15px;
+
+    p {
+        font-size: 1em;
+    }
+}
+
+.CookiesModal__settings {
+    margin-top: spacing(xxl);
+}
+
+.CookiesModal__settings__action {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: spacing(xs) 0;
+
+    background-color: $color-greyscale-200;
+
+    text-align: right;
+
+    @media (min-width: $screen-xs-min) {
+        padding: spacing(sm) 0;
+    }
+}

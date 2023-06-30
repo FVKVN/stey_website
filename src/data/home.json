@@ -1,0 +1,129 @@
+{
+    "hasHero": true,
+    "heroImagePath": "./images/hero.webp",
+    "pageTitle": "Firmin Steyaert",
+    "pageSections": [
+            {
+                "type": "default",
+                "pinned": false,
+                "fullWidth": false,
+                "theme": "light",
+                "content": {
+                    "title": "Over Firmin",
+                    "subTitle": "Een portret van de kunstenaar en een karakterisering van zijn werk.",
+                    "body": [
+                        "<p>Firmin Steyaert werd op <strong>2 april 1933</strong> geboren als derde van vier kinderen in een eenvoudig gezin te <strong>Maria-Aalter</strong>. Zijn vader Léon Steyaert ging na de lagere school onmiddellijk werken en verdiende op vele wijzen de kost o.a. als seizoenarbeider in Frankrijk, als knecht in de bouw, als arbeider in de Vinckier. Zijn moeder Regina Lambert won een centje bij als spellenwerkster.</p>",
+                        "<p>Het leven op het dorp, de bossen en de armoedige levensomstandigheden uit zijn kindertijd hebben diepe indrukken gelaten bij de kunstenaar.</p>",
+                        "<p>In de dorpsschool liep hij lager onderwijs, toen tot en met het achtste studiejaar. Daar opende zich een andere wereld. Vooral het vak “moedertaal” sprak Firmin aan. De onderwijzers drongen er bij de ouders op aan dat de jongen zou verder studeren. Daarop trok hij naar de “vakschool” te Brugge waar hij een technische opleiding tot <strong>metaalbewerker</strong> genoot. Het was de plaats waar zijn handen een <strong>gevoeligheid voor vorm en volume</strong> verwierven die hem als beeldhouwer heel dienstbaar zou zijn. Niettemin ging zijn belangstelling vooral uit naar de algemene vakken: geschiedenis, kunst en andermaal moedertaal. Het bescheiden zakgeld dat hij kreeg spendeerde de jonge Firmin niet aan een reep chocolade of ander vertier maar hij kocht zich kleine boekjes over de grote kunstenaars van wie hij in de les had horen spreken.</p>",
+                        "<p>Na zijn secundaire studies werkte hij op verschillende <strong>scheepswerven</strong> in de Brugse haven waar hij onder andere verantwoordelijk was voor het uittekenen van de kielen. Het zoeken naar de lijn die het minste weerstand van het water ondervindt, was voor de constructie van een schip heel belangrijk. Wie het werk van Firmin Steyaert nader bekijkt, zal vaak getroffen worden door het spel van vloeiende lijnen dat zich aan de blik openbaart.</p>",
+                        "<p>Na de teloorgang van de scheepsbouw in het Brugse eind jaren vijftig van de vorige eeuw, startte Firmin een nieuwe carrière in het <strong>technisch onderwijs</strong>. In Assebroek stond hij mee aan de wieg van de bijzondere beroepsschool die later zou uitgroeien tot de <strong>busoschool Haverlo</strong>.</p>",
+                        "<p>Hij bekleedde er verschillende functies van <strong>leerkracht</strong> tot <strong>directeur</strong> en na zijn pensionering was hij nog enkele jaren werkzaam als <strong>pedagogisch begeleider</strong> voor de busoscholen van het bisdom Brugge.</p>",
+                        "<p>Ondertussen had hij samen met zijn echtgenote <strong>Hélène Maene</strong> met wie hij in <strong>1958</strong> in het huwelijk trad, drie zonen grootgebracht. De vroegtijdige dood van zijn vrouw in <strong>1988</strong> – ze was amper eenenvijftig - betekende voor de kunstenaar een zware slag. Ondanks het drukke professionele en familiale leven heeft Firmin Steyaert de tijd gevonden om zich <strong>als autodidact tot plastisch kunstenaar te vormen</strong>.</p>",
+                        "<p>Al vrij snel had hij het <strong>tekenen</strong> onder de knie. Na een omweg via de schilderkunst en de fotografie vond hij al gauw in de <strong>beeldhouwkunst het medium dat paste bij zijn temperament</strong>. Hij leerde vlot in verschillende materialen werken: <strong>hout</strong>, <strong>kunststeen</strong>, <strong>klei</strong>, <strong>brons</strong>. Zijn onderwerpen bleven altijd dezelfde: <strong>de vrouw</strong>, <strong>de moeder</strong>, <strong>het koppel</strong>. Over zijn inspiratiebronnen vertelt de kunstnaar het volgende:</p>",
+                        "<figure class='quote'><blockquote class='quote__quote'>De primitieve kunst fascineert mij. Hier vind ik de oerervaring terug. Idolen en vruchtbaarheidsbeelden drukken de drang naar leven uit zonder de contaminatie van de taal of de gedachte. Ook de byzantijnse iconen met hun hiëratische figuren en de romaanse kunst met zijn statige mystiek hebben op mij een diepe indruk gemaakt.</blockquote><figcaption class='quote__author'>Firmin Steyaert</figcaption></figure>",
+                        "<p>Wie met de kunst van Firmin Steyaert kennismaakt, vindt vage sporen van de kunst die hij bewondert. <strong>Geïnspireerd door zijn rijke en doorleefde kennis van de kunstgeschiedenis heeft hij een eigen beeld-taal ontwikkeld</strong>.</p>",
+                        "<p>Zijn beelden <strong>verenigen primitieve kracht met mystieke diepte</strong>. De essentie van het mysterie van het leven vindt hij bij de vrouw en de moeder. De beelden zijn wars van spitsvondigheid en schreeuwerigheid. Ze zijn nooit schokkend of obsceen. Integendeel. Ze hebben een verrassende natuurlijkheid, ondanks de soms verregaande abstractie. Ze <strong>stralen in hun eenvoud een universele inhoud uit</strong> die direct pakt. De toeschouwer voelt onmiddellijk het ethos van het beeld. Er <strong>hoeft geen uitleg, geen context, geen artistiek verhaal</strong> aan toegevoegd te worden. In dit opzicht zijn de beelden van Firmin Steyaert klassiek te noemen, namelijk niet door hun vormgeving, maar door hun uitwerking. Zijn figuren die vaak bescherming zoeken of bieden, lijken weet te hebben van de vlucht van de tijd die aan elke symbiose een einde maakt.</p>",
+                        "<p>Alle beelden brengen <strong>menselijke hunkering, fierheid en adel</strong> aan het licht. Geen cynisme, daarvoor is er teveel kwetsbaarheid. Geen boodschapperigheid, daarvoor is het werk te ingetogen. Firmin Steyaert beeldt het menselijk tekort uit op een bijzonder waarachtige wijze. Niet zelden gebeurt dat door een gebaar of een houding vast te leggen die het tekort lijkt op te heffen: de zwangere vrouw die haar handen om haar buik legt, de moeder die in een beschermend gebaar één wordt met haar kind, de geliefden die in hun omstrengeling een vijandige wereld buitensluiten.</p>",
+                        "<p>Geconfronteerd met deze in de materie tot stilstand gekomen momenten van eenheid en geborgenheid wordt de toeschouwer herinnerd aan zijn eigen broosheid. Maar de beelden doen meer dan de kwetsbaarheid oproepen: ze <strong>troosten ook door te tonen wat we verlangen</strong>.</p>",
+                        "<p>In het vermogen om dit effect te bewerkstelligen ligt het geheim van Firmin Steyaerts kunstenaarschap: <strong>beeld geworden menselijke waarachtigheid!</strong></p>                "
+                    ]
+                }
+            },
+            {
+                "type": "work",
+                "pinned": true,
+                "fullWidth": true,
+                "theme": "light",
+                "content": {
+                    "title": "Oeuvre",
+                    "subTitle": "Een overzicht van Firmin's werk doorheen verschillende media & dragers.",
+                    "body": [
+                        {
+                            "type": "Brons",
+                            "description": "Lorem ipsum dolor sit amet",
+                            "coverImage": "./images/work/brons-cover.webp",
+                            "images": [
+                                "brons-1.webp",
+                                "brons-1.webp",
+                                "brons-1.webp",
+                                "brons-1.webp",
+                                "brons-1.webp",
+                                "brons-1.webp"
+                            ]
+                        }, {
+                            "type": "Steen",
+                            "description": "Lorem ipsum dolor sit amet",
+                            "coverImage": "./images/work/steen-cover.webp",
+                            "images": [
+                                "steen-1.webp",
+                                "steen-1.webp",
+                                "steen-1.webp",
+                                "steen-1.webp",
+                                "steen-1.webp",
+                                "steen-1.webp"
+                            ]
+                        }, {
+                            "type": "Hout",
+                            "description": "Lorem ipsum dolor sit amet",
+                            "coverImage": "./images/work/hout-cover.webp",
+                            "images": [
+                                "hout-1.webp",
+                                "hout-1.webp",
+                                "hout-1.webp",
+                                "hout-1.webp",
+                                "hout-1.webp",
+                                "hout-1.webp"
+                            ]
+                        }, {
+                            "type": "Tekeningen",
+                            "description": "Lorem ipsum dolor sit amet",
+                            "coverImage": "./images/work/tekeningen-cover.webp",
+                            "images": [
+                                "tekeningen-1.webp",
+                                "tekeningen-1.webp",
+                                "tekeningen-1.webp",
+                                "tekeningen-1.webp",
+                                "tekeningen-1.webp",
+                                "tekeningen-1.webp"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "expo",
+                "pinned": true,
+                "fullWidth": true,
+                "theme": "light",
+                "content": {
+                    "title": "Exposities",
+                    "subTitle": "Een overzicht van afgelopen en toekomstige tentoonstellingen.",
+                    "body": [
+                        {
+                            "location": "Kerk Oeren",
+                            "startDate": "2018-08-21",
+                            "endDate": "2018-09-02",
+                            "coverImage": "./images/expo/oeren-cover.webp",
+                            "images": [
+                                "oeren-1.webp",
+                                "oeren-1.webp",
+                                "oeren-1.webp"
+                            ]
+                        },
+                        {
+                            "location": "Kasteel van Poeke",
+                            "startDate": "2011-07-03",
+                            "endDate": "2011-07-17",
+                            "coverImage": "./images/expo/poeke-2011-cover.webp",
+                            "images": [
+                                "poeke-1.webp",
+                                "poeke-1.webp",
+                                "poeke-1.webp"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+        
+}

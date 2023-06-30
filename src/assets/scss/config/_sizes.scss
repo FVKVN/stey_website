@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Config - Sizes
+
+   This file is exclusively intended for setting up variables
+   Never add styles directly to this file
+   ========================================================================== */
+
+$border-radius:    8px;
+
+$spacings: (
+    xs: 1.8rem,
+    sm: 2.4rem,
+    md: 3.6rem,
+    lg: 4.8rem,
+    xl: 6rem,
+    xxl: 8.4rem,
+    xxxl: 12rem
+);

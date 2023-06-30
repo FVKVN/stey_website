@@ -1,0 +1,49 @@
+/* ==========================================================================
+   fonts
+   ========================================================================== */
+
+/* josefin-sans-300 - latin */
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src:
+        local('Josefin Sans'),
+        url('../../fonts/josefin-sans-v25-latin-300.woff2') format('woff2'),
+        url('../../fonts/josefin-sans-v25-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* josefin-sans-regular - latin */
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        local('Josefin Sans'),
+        url('../../fonts/josefin-sans-v25-latin-regular.woff2') format('woff2'),
+        url('../../fonts/josefin-sans-v25-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* josefin-sans-600 - latin */
+@font-face {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+        local('Josefin Sans'),
+        url('../../fonts/josefin-sans-v25-latin-600.woff2') format('woff2'),
+        url('../../fonts/josefin-sans-v25-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* yeseva-one-regular - latin */
+@font-face {
+    font-family: 'Yeseva One';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        local('Yeseva One'),
+        url('../../fonts/yeseva-one-v20-latin-regular.woff2') format('woff2'),
+        url('../../fonts/yeseva-one-v20-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

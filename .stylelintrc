@@ -1,0 +1,9 @@
+{
+    "extends": ["./node_modules/@kunstmaan/stylelint-config/index.js"],
+    "ignoreFiles": [
+      "**/*.js",
+      "**/*.ts",
+      "**/*.jsx",
+      "**/*.tsx"
+    ]
+}

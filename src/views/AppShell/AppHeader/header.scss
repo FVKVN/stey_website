@@ -1,0 +1,42 @@
+/* ==========================================================================
+    Header
+   ========================================================================== */
+
+@import '../../../assets/scss/imports';
+
+.main-header {
+    position: fixed;
+    left: 3rem;
+    top: 3rem;
+    right: 3rem;
+    z-index: 300;
+
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    // mix-blend-mode: difference;
+}
+
+.main-header__logo-link {
+    display: inline-block;
+    flex: 0 0 auto;
+}
+
+.main-header__logo-link__logo {
+    fill: $color-greyscale-300;
+    mix-blend-mode: difference;
+}
+
+.main-header__anchors {
+    display: flex;
+    gap: 4rem;
+}
+
+.main-header__anchor {
+    font-size: 1vw;
+    color: $color-greyscale-300;
+    text-decoration: none;
+}
