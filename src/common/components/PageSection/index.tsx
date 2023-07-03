@@ -139,12 +139,25 @@ function MediaContent({
             >
                 <div ref={holderRef} className="page-section__media-holder">
                     {body.map((workSection: IWorkSection) => (
-                        <img
+                        <article
                             key={`home-page-section-${slugify(workSection.type)}`}
                             className="page-section__media__item"
-                            alt=""
-                            src={workSection.coverImage}
-                        />
+                        >
+                            <img
+                                className="page-section__media__item__image"
+                                alt=""
+                                src={workSection.coverImage}
+                            />
+                            <header className="page-section__media__item__header">
+                                <h4 className="page-section__media__item__title">
+                                    {workSection.type}
+                                </h4>
+                                <span className="page-section__media__item__more">
+                                    Toon meer
+                                </span>
+                            </header>
+                        </article>
+
                     ))}
                 </div>
             </Tween>

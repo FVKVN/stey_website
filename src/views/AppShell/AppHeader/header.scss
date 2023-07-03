@@ -6,18 +6,22 @@
 
 .main-header {
     position: fixed;
-    left: 3rem;
-    top: 3rem;
-    right: 3rem;
+    left: 0;
+    top: 0;
+    bottom: 0;
     z-index: 300;
 
     padding: 3rem;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    align-items: flex-start;
 
     mix-blend-mode: difference;
+
+    @media (min-width: $screen-md-min) {
+        padding: 6rem;
+    }
 }
 
 .main-header__logo-link {
@@ -32,11 +36,16 @@
 
 .main-header__anchors {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
+    align-items: center;
+    transform: rotate(-180deg);
+
+    writing-mode: vertical-lr;
 }
 
 .main-header__anchor {
-    font-size: 1vw;
+    font-size: max(1.5vw, 1.8rem);
     color: $color-greyscale-300;
     text-decoration: none;
+    text-transform: uppercase;
 }

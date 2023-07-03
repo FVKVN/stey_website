@@ -8,18 +8,22 @@
 
 .quote__quote {
     margin: 0;
-    padding: 6rem 6rem 6rem 15.4rem;
+    padding: 2rem 2rem 2rem 4rem;
 
     background-color: $color-greyscale-300;
 
     border-left: 1rem solid $color-greyscale-000;
 
-    font-size: 2vw;
+    font-size: max(2.2rem, 2vw);
     font-family: $font-family--headings;
+
+    @media (min-width: $screen-md-min) {
+        padding: 6rem 6rem 6rem 15.4rem;
+    }
 }
 
 .quote__author {
     margin-top: 2rem;
 
-    font-size: 1.3vw;
+    font-size: max(1.4rem, 1.3vw);
 }
