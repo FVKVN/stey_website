@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react/no-danger */
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
-import { SpringValue, animated, useScroll } from '@react-spring/web';
+import gsap from 'gsap';
+import { Tween } from 'react-gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import {
     IExpoSection,
     IPageSection,
@@ -10,15 +12,24 @@ import {
 } from '../../../models/pageData.model';
 import { slugify } from '../../utils/slugify';
 
+gsap.registerPlugin(ScrollTrigger);
+
 interface IComponentProps {
     sectionData: IPageSection;
 }
 
+interface IWorkComponentProps {
+    parentId: string;
+    body: IWorkSection[];
+}
+
+interface IEventComponentProps {
+    parentId: string;
+    body: IExpoSection[];
+}
+
 function PageSection({ sectionData }: IComponentProps) {
     const parentId = slugify(sectionData.content.title);
-    const { scrollYProgress, scrollY } = useScroll();
-
-    console.log(scrollY);
 
     return (
         <div
@@ -41,30 +52,31 @@ function PageSection({ sectionData }: IComponentProps) {
                         })
                     }
                 >
-                    {sectionData.content.subTitle !== '' && (
+                    { sectionData.content.subTitle !== '' && (
                         <h3 className="page-section__sub-title">
                             {sectionData.content.subTitle}
                         </h3>
                     )}
-
-                    { renderContent(sectionData, scrollYProgress) }
+                    { renderContent(sectionData, parentId) }
                 </div>
             </div>
         </div>
     );
 }
 
-function renderContent(sectionData: IPageSection, scrollYProgress: SpringValue | null): ReactElement | null {
+function renderContent(
+    sectionData: IPageSection,
+    parentId: string,
+): ReactElement | null {
     const { type } = sectionData;
     const { body } = sectionData.content;
 
     if (type === 'expo') {
-        // typescript doesn't know which type
-        return renderEventContent(body as unknown as IExpoSection[]);
+        return <EventContent body={body as unknown as IExpoSection[]} parentId={parentId} />;
     }
 
     if (type === 'work') {
-        return renderMediaContent(body as unknown as IWorkSection[], scrollYProgress);
+        return <MediaContent body={body as unknown as IWorkSection[]} parentId={parentId} />;
     }
 
     if (type === 'default') {
@@ -88,44 +100,117 @@ function renderBlockContent(body:string[]): ReactElement {
     );
 }
 
-function renderMediaContent(body:IWorkSection[], scrollYProgress: SpringValue | null): ReactElement {
+function MediaContent({
+    body,
+    parentId,
+}:IWorkComponentProps): ReactElement {
+    const [imageWidth, setImageWidth] = useState(0);
+    const [offsetLeft, setOffsetLeft] = useState(0);
+    const imageRef = useRef<HTMLImageElement>(null);
+    const itemAmount = body.length;
+    const scrollBack = ((imageWidth) * (itemAmount - 1)) - (offsetLeft / itemAmount);
+
+    useEffect(() => {
+        if (imageRef.current !== null) {
+            const rect = imageRef.current.getBoundingClientRect();
+            setImageWidth(rect.width);
+            setOffsetLeft(rect.left);
+        }
+    }, [imageWidth, offsetLeft]);
+
     return (
         <div className="page-section__media">
-            <animated.div
-                className="page-section__media-holder pinned-scroll"
-                style={{
-                    transform: scrollYProgress !== null
-                        ? scrollYProgress.to((scrollPercentage) => `translateX(-${scrollPercentage}%)`)
-                        : 'none',
+            <Tween
+                to={{
+                    x: `-${scrollBack}px`,
+                    scrollTrigger: {
+                        trigger: `#${parentId}`,
+                        scrub: true,
+                        pin: true,
+                        start: 'top top',
+                    },
                 }}
             >
-                { body.map((workSection: IWorkSection) => (
-                    <img
-                        key={`home-page-section-${slugify(workSection.type)}`}
-                        className="page-section__media__item"
-                        alt=""
-                        src={workSection.coverImage}
-                    />
-                ))}
-            </animated.div>
-
+                <div className="page-section__media-holder">
+                    {body.map((workSection: IWorkSection, i) => {
+                        if (i === 0) {
+                            return (
+                                <img
+                                    ref={imageRef}
+                                    key={`home-page-section-${slugify(workSection.type)}`}
+                                    className="page-section__media__item"
+                                    alt=""
+                                    src={workSection.coverImage}
+                                />
+                            );
+                        }
+                        return (
+                            <img
+                                key={`home-page-section-${slugify(workSection.type)}`}
+                                className="page-section__media__item"
+                                alt=""
+                                src={workSection.coverImage}
+                            />
+                        );
+                    })}
+                </div>
+            </Tween>
         </div>
     );
 }
 
-function renderEventContent(body:IExpoSection[]): ReactElement {
+function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
+    const [imageWidth, setImageWidth] = useState(0);
+    const [offsetLeft, setOffsetLeft] = useState(0);
+    const imageRef = useRef<HTMLImageElement>(null);
+    const itemAmount = body.length;
+    const scrollBack = ((imageWidth + 30) * (itemAmount - 1)) - (offsetLeft / itemAmount);
+
+    useEffect(() => {
+        if (imageRef.current !== null) {
+            const rect = imageRef.current.getBoundingClientRect();
+            setImageWidth(rect.width);
+            setOffsetLeft(rect.left);
+        }
+    }, [imageWidth, offsetLeft]);
+
     return (
         <div className="page-section__expo">
-            <div className="page-section__expo-holder">
-                { body.map((expoSection: IExpoSection) => (
-                    <img
-                        key={`home-page-section-${slugify(expoSection.location)}`}
-                        className="page-section__media__item"
-                        alt=""
-                        src={expoSection.coverImage}
-                    />
-                ))}
-            </div>
+            <Tween
+                to={{
+                    x: `-${scrollBack}px`,
+                    scrollTrigger: {
+                        trigger: `#${parentId}`,
+                        scrub: true,
+                        pin: true,
+                        start: 'top top',
+                    },
+                }}
+            >
+                <div className="page-section__expo-holder">
+                    {body.map((expoSection: IExpoSection, i) => {
+                        if (i === 0) {
+                            return (
+                                <img
+                                    ref={imageRef}
+                                    key={`home-page-section-${slugify(expoSection.location)}`}
+                                    className="page-section__expo__item"
+                                    alt=""
+                                    src={expoSection.coverImage}
+                                />
+                            );
+                        }
+                        return (
+                            <img
+                                key={`home-page-section-${slugify(expoSection.location)}`}
+                                className="page-section__expo__item"
+                                alt=""
+                                src={expoSection.coverImage}
+                            />
+                        );
+                    })}
+                </div>
+            </Tween>
         </div>
     );
 }

@@ -4,7 +4,8 @@
 
 .page-section {
     width: 100%;
-    min-height: calc(100vh - 6rem);
+    min-height: 100vh;
+    padding: 3rem 0;
 
     background-color: $color-greyscale-200;
 
@@ -70,6 +71,10 @@
         &--full {
             max-width: 100%;
             padding-right: 0;
+
+            .page-section__sub-title {
+                padding-right: 3rem;
+            }
         }
     }
 
@@ -119,12 +124,14 @@
     }
 }
 
-.page-section__media {
+.page-section__media,
+.page-section__expo {
     height: 100%;
     overflow: hidden;
 }
 
-.page-section__media-holder {
+.page-section__media-holder,
+.page-section__expo-holder {
     display: inline-flex;
     margin-top: 3rem;
     gap: 3rem;
@@ -142,10 +149,11 @@
     }
 }
 
-.page-section__media__item {
+.page-section__media__item,
+.page-section__expo__item {
     display: block;
     flex: 0 0 auto;
-    height: 40vh;
+    height: 45vh;
     aspect-ratio: 4/3;
 
     object-fit: cover;
