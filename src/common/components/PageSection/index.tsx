@@ -104,22 +104,28 @@ function MediaContent({
     body,
     parentId,
 }:IWorkComponentProps): ReactElement {
-    const [imageWidth, setImageWidth] = useState(0);
+    const [holderWidth, setHolderWidth] = useState(0);
     const [offsetLeft, setOffsetLeft] = useState(0);
-    const imageRef = useRef<HTMLImageElement>(null);
-    const itemAmount = body.length;
-    const scrollBack = ((imageWidth) * (itemAmount - 1)) - (offsetLeft / itemAmount);
+    const [containerWidth, setContainerWidth] = useState(0);
+    const holderRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scrollBack = holderWidth - containerWidth;
 
     useEffect(() => {
-        if (imageRef.current !== null) {
-            const rect = imageRef.current.getBoundingClientRect();
-            setImageWidth(rect.width);
+        if (holderRef.current !== null) {
+            const rect = holderRef.current.getBoundingClientRect();
+            setHolderWidth(rect.width);
             setOffsetLeft(rect.left);
         }
-    }, [imageWidth, offsetLeft]);
+
+        if (containerRef.current !== null) {
+            const rect = containerRef.current.getBoundingClientRect();
+            setContainerWidth(rect.width);
+        }
+    }, [holderWidth, offsetLeft, containerWidth]);
 
     return (
-        <div className="page-section__media">
+        <div ref={containerRef} className="page-section__media">
             <Tween
                 to={{
                     x: `-${scrollBack}px`,
@@ -131,28 +137,15 @@ function MediaContent({
                     },
                 }}
             >
-                <div className="page-section__media-holder">
-                    {body.map((workSection: IWorkSection, i) => {
-                        if (i === 0) {
-                            return (
-                                <img
-                                    ref={imageRef}
-                                    key={`home-page-section-${slugify(workSection.type)}`}
-                                    className="page-section__media__item"
-                                    alt=""
-                                    src={workSection.coverImage}
-                                />
-                            );
-                        }
-                        return (
-                            <img
-                                key={`home-page-section-${slugify(workSection.type)}`}
-                                className="page-section__media__item"
-                                alt=""
-                                src={workSection.coverImage}
-                            />
-                        );
-                    })}
+                <div ref={holderRef} className="page-section__media-holder">
+                    {body.map((workSection: IWorkSection) => (
+                        <img
+                            key={`home-page-section-${slugify(workSection.type)}`}
+                            className="page-section__media__item"
+                            alt=""
+                            src={workSection.coverImage}
+                        />
+                    ))}
                 </div>
             </Tween>
         </div>
@@ -160,22 +153,28 @@ function MediaContent({
 }
 
 function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
-    const [imageWidth, setImageWidth] = useState(0);
+    const [holderWidth, setHolderWidth] = useState(0);
     const [offsetLeft, setOffsetLeft] = useState(0);
-    const imageRef = useRef<HTMLImageElement>(null);
-    const itemAmount = body.length;
-    const scrollBack = ((imageWidth + 30) * (itemAmount - 1)) - (offsetLeft / itemAmount);
+    const [containerWidth, setContainerWidth] = useState(0);
+    const holderRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const scrollBack = holderWidth - containerWidth;
 
     useEffect(() => {
-        if (imageRef.current !== null) {
-            const rect = imageRef.current.getBoundingClientRect();
-            setImageWidth(rect.width);
+        if (holderRef.current !== null) {
+            const rect = holderRef.current.getBoundingClientRect();
+            setHolderWidth(rect.width);
             setOffsetLeft(rect.left);
         }
-    }, [imageWidth, offsetLeft]);
+
+        if (containerRef.current !== null) {
+            const rect = containerRef.current.getBoundingClientRect();
+            setContainerWidth(rect.width);
+        }
+    }, [holderWidth, offsetLeft, containerWidth]);
 
     return (
-        <div className="page-section__expo">
+        <div ref={containerRef} className="page-section__expo">
             <Tween
                 to={{
                     x: `-${scrollBack}px`,
@@ -187,28 +186,15 @@ function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
                     },
                 }}
             >
-                <div className="page-section__expo-holder">
-                    {body.map((expoSection: IExpoSection, i) => {
-                        if (i === 0) {
-                            return (
-                                <img
-                                    ref={imageRef}
-                                    key={`home-page-section-${slugify(expoSection.location)}`}
-                                    className="page-section__expo__item"
-                                    alt=""
-                                    src={expoSection.coverImage}
-                                />
-                            );
-                        }
-                        return (
-                            <img
-                                key={`home-page-section-${slugify(expoSection.location)}`}
-                                className="page-section__expo__item"
-                                alt=""
-                                src={expoSection.coverImage}
-                            />
-                        );
-                    })}
+                <div ref={holderRef} className="page-section__expo-holder">
+                    {body.map((expoSection: IExpoSection) => (
+                        <img
+                            key={`home-page-section-${slugify(expoSection.location)}`}
+                            className="page-section__expo__item"
+                            alt=""
+                            src={expoSection.coverImage}
+                        />
+                    ))}
                 </div>
             </Tween>
         </div>
