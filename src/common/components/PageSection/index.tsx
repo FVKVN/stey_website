@@ -109,7 +109,7 @@ function MediaContent({
     const [containerWidth, setContainerWidth] = useState(0);
     const holderRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollBack = holderWidth - containerWidth;
+    const scrollBack = (holderWidth - containerWidth) + 30;
 
     useEffect(() => {
         if (holderRef.current !== null) {
@@ -158,7 +158,7 @@ function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
     const [containerWidth, setContainerWidth] = useState(0);
     const holderRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollBack = holderWidth - containerWidth;
+    const scrollBack = (holderWidth - containerWidth) + 30;
 
     useEffect(() => {
         if (holderRef.current !== null) {
