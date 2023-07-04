@@ -4,47 +4,61 @@
 
 @import '../../../assets/scss/imports';
 
-.main-header {
+.hud__header {
     position: fixed;
     left: 0;
     top: 0;
-    bottom: 0;
+    right: 0;
     z-index: 300;
 
     padding: 3rem;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 
     mix-blend-mode: difference;
 
     @media (min-width: $screen-md-min) {
-        padding: 6rem;
+        padding: 6rem 6rem 3rem;
     }
 }
 
-.main-header__logo-link {
+.hud__logo-link {
     display: inline-block;
     flex: 0 0 auto;
 }
 
-.main-header__logo-link__logo {
+.hud__logo-link__logo {
     fill: $color-greyscale-300;
-    mix-blend-mode: difference;
 }
 
-.main-header__anchors {
+.hud__anchors {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    z-index: 300;
+
     display: flex;
     gap: 3rem;
     align-items: center;
-    transform: rotate(-180deg);
+    transform: rotate(360deg);
 
     writing-mode: vertical-lr;
+
+    mix-blend-mode: difference;
+
+    @media (min-width: $screen-md-min) {
+        right: 5rem;
+        bottom: 5rem;
+    }
 }
 
-.main-header__anchor {
+.hud__anchor {
+    display: inline-block;
+
     font-size: max(1.5vw, 1.8rem);
+    line-height: 1;
     color: $color-greyscale-300;
     text-decoration: none;
     text-transform: uppercase;

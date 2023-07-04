@@ -18,37 +18,39 @@ export interface IPageSectionContent {
     subTitle?: string;
 }
 
-export interface IPageSectionDefault {
+export interface IPageSectionDefault extends IPageSectionGeneric {
     type: 'default';
-    pinned: boolean;
-    fullWidth: boolean;
-    theme: 'dark' | 'light';
     content: IPageSectionContent & {
         body: string[];
     };
 }
 
-export interface IPageSectionWork {
+export interface IPageSectionWork extends IPageSectionGeneric {
     type: 'work';
-    pinned: boolean;
-    fullWidth: boolean;
-    theme: 'dark' | 'light';
     content: IPageSectionContent & {
         body: IWorkSection[];
     };
 }
 
-export interface IPageSectionExpo {
+export interface IPageSectionExpo extends IPageSectionGeneric {
     type: 'expo';
-    pinned: boolean;
-    fullWidth: boolean;
-    theme: 'dark' | 'light';
     content: IPageSectionContent & {
         body: IExpoSection[];
     };
 }
 
-export type IPageSection = IPageSectionDefault | IPageSectionWork | IPageSectionExpo;
+export interface IPageSectionContact extends IPageSectionGeneric {
+    type: 'contact';
+    content: IPageSectionContent;
+}
+
+export interface IPageSectionGeneric {
+    pinned: boolean;
+    fullWidth: boolean;
+    theme: 'dark' | 'light';
+}
+
+export type IPageSection = IPageSectionDefault | IPageSectionWork | IPageSectionExpo | IPageSectionContact;
 
 export interface IPageData {
     hasHero: boolean;

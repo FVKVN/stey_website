@@ -123,6 +123,16 @@
                         }
                     ]
                 }
+            },
+            {
+                "type": "contact",
+                "pinned": false,
+                "fullWidth": false,
+                "theme": "dark",
+                "content": {
+                    "title": "Oeuvre",
+                    "subTitle": "Een overzicht van Firmin's werk doorheen verschillende media."
+                }
             }
         ]
         

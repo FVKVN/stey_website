@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react/no-danger */
-import React, { ReactElement, useEffect, useState, useRef } from 'react';
+import React, { ReactElement, useEffect, useState, useRef, ReactNode } from 'react';
 import classNames from 'classnames';
 import gsap from 'gsap';
 import { Tween } from 'react-gsap';
@@ -16,6 +16,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface IComponentProps {
     sectionData: IPageSection;
+}
+
+interface IPinnedSectionComponentProps {
+    parentId: string;
+    className?: string;
+    children: ReactNode;
 }
 
 interface IWorkComponentProps {
@@ -37,10 +43,7 @@ function PageSection({ sectionData }: IComponentProps) {
             className="page-section"
         >
             <div className="page-section__content">
-                <header className={classNames('page-section__header', {
-                    'page-section__header--not-sticky': sectionData.pinned,
-                })}
-                >
+                <header className="page-section__header">
                     <h2 className="page-section__title">
                         {sectionData.content.title}
                     </h2>
@@ -100,16 +103,13 @@ function renderBlockContent(body:string[]): ReactElement {
     );
 }
 
-function MediaContent({
-    body,
-    parentId,
-}:IWorkComponentProps): ReactElement {
+function PinnedSection({ children, className, parentId }: IPinnedSectionComponentProps) {
     const [holderWidth, setHolderWidth] = useState(0);
     const [offsetLeft, setOffsetLeft] = useState(0);
     const [containerWidth, setContainerWidth] = useState(0);
     const holderRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const scrollBack = (holderWidth - containerWidth) + 30;
+    const scrollBack = (holderWidth - containerWidth) + 60;
 
     useEffect(() => {
         if (holderRef.current !== null) {
@@ -125,92 +125,70 @@ function MediaContent({
     }, [holderWidth, offsetLeft, containerWidth]);
 
     return (
-        <div ref={containerRef} className="page-section__media">
+        <div ref={containerRef} className={`${className} page-section__pinned-section`}>
             <Tween
                 to={{
                     x: `-${scrollBack}px`,
                     scrollTrigger: {
                         trigger: `#${parentId}`,
                         scrub: true,
-                        pin: true,
-                        start: 'top top',
+                        pin: false,
+                        start: 'clamp(top top)',
+                        end: 'clamp(bottom 60%)',
                     },
                 }}
             >
-                <div ref={holderRef} className="page-section__media-holder">
-                    {body.map((workSection: IWorkSection) => (
-                        <article
-                            key={`home-page-section-${slugify(workSection.type)}`}
-                            className="page-section__media__item"
-                        >
-                            <img
-                                className="page-section__media__item__image"
-                                alt=""
-                                src={workSection.coverImage}
-                            />
-                            <header className="page-section__media__item__header">
-                                <h4 className="page-section__media__item__title">
-                                    {workSection.type}
-                                </h4>
-                                <span className="page-section__media__item__more">
-                                    Toon meer
-                                </span>
-                            </header>
-                        </article>
-
-                    ))}
+                <div ref={holderRef} className="page-section__pinned-section__content-holder">
+                    {children}
                 </div>
             </Tween>
         </div>
     );
 }
 
-function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
-    const [holderWidth, setHolderWidth] = useState(0);
-    const [offsetLeft, setOffsetLeft] = useState(0);
-    const [containerWidth, setContainerWidth] = useState(0);
-    const holderRef = useRef<HTMLDivElement>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const scrollBack = (holderWidth - containerWidth) + 30;
-
-    useEffect(() => {
-        if (holderRef.current !== null) {
-            const rect = holderRef.current.getBoundingClientRect();
-            setHolderWidth(rect.width);
-            setOffsetLeft(rect.left);
-        }
-
-        if (containerRef.current !== null) {
-            const rect = containerRef.current.getBoundingClientRect();
-            setContainerWidth(rect.width);
-        }
-    }, [holderWidth, offsetLeft, containerWidth]);
-
+function MediaContent({
+    body,
+    parentId,
+}:IWorkComponentProps): ReactElement {
     return (
-        <div ref={containerRef} className="page-section__expo">
-            <Tween
-                to={{
-                    x: `-${scrollBack}px`,
-                    scrollTrigger: {
-                        trigger: `#${parentId}`,
-                        scrub: true,
-                        pin: true,
-                        start: 'top top',
-                    },
-                }}
-            >
-                <div ref={holderRef} className="page-section__expo-holder">
-                    {body.map((expoSection: IExpoSection) => (
-                        <img
-                            key={`home-page-section-${slugify(expoSection.location)}`}
-                            className="page-section__expo__item"
-                            alt=""
-                            src={expoSection.coverImage}
-                        />
-                    ))}
-                </div>
-            </Tween>
-        </div>
+        <PinnedSection className="page-section__media" parentId={parentId}>
+            {body.map((workSection: IWorkSection) => (
+                <article
+                    key={`home-page-section-${slugify(workSection.type)}`}
+                    className="page-section__media__item"
+                >
+                    <img
+                        className="page-section__media__item__image"
+                        alt=""
+                        src={workSection.coverImage}
+                    />
+                    <header className="page-section__media__item__header">
+                        <h4 className="page-section__media__item__title">
+                            {workSection.type}
+                        </h4>
+                        <span className="page-section__media__item__more">
+                            Toon meer
+                        </span>
+                    </header>
+                </article>
+
+            ))}
+        </PinnedSection>
+    );
+}
+
+function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
+    return (
+        <PinnedSection className="page-section__expo" parentId={parentId}>
+            {body.map((expoSection: IExpoSection) => (
+                <img
+                    key={`home-page-section-${slugify(expoSection.location)}`}
+                    className="page-section__expo__item"
+                    alt=""
+                    src={expoSection.coverImage}
+                />
+            ))}
+        </PinnedSection>
     );
 }
 
