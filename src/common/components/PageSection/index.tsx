@@ -72,17 +72,23 @@ function renderContent(
     parentId: string,
 ): ReactElement | null {
     const { type } = sectionData;
-    const { body } = sectionData.content;
 
     if (type === 'expo') {
+        const { body } = sectionData.content;
         return <EventContent body={body as unknown as IExpoSection[]} parentId={parentId} />;
     }
 
     if (type === 'work') {
+        const { body } = sectionData.content;
         return <MediaContent body={body as unknown as IWorkSection[]} parentId={parentId} />;
     }
 
+    if (type === 'contact') {
+        return <ContactContent />;
+    }
+
     if (type === 'default') {
+        const { body } = sectionData.content;
         return renderBlockContent(body as unknown as string[]);
     }
 
@@ -189,6 +195,12 @@ function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
                 />
             ))}
         </PinnedSection>
+    );
+}
+
+function ContactContent():ReactElement {
+    return (
+        <div />
     );
 }
 
