@@ -5,7 +5,7 @@ export interface IWorkSection {
     images: string[];
 }
 
-interface IExpoSectionDefault {
+export interface IExpoSectionDefault {
     location: string;
     startDate: string;
     endDate: string;

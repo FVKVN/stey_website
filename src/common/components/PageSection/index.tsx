@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react/no-danger */
 import React, { ReactElement, useEffect, useState, useRef, ReactNode } from 'react';
@@ -7,6 +8,7 @@ import { Tween } from 'react-gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import {
     IExpoSection,
+    IExpoSectionDefault,
     IPageSection,
     IWorkSection,
 } from '../../../models/pageData.model';
@@ -191,6 +193,37 @@ function MediaContent({
 function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
     const { upcoming, past } = body;
 
+    function renderItem({
+        item,
+        isPast,
+    }: {
+        item: IExpoSectionDefault;
+        isPast: boolean;
+    }) {
+        return (
+            <article
+                key={`${slugify(item.location)}-${slugify(item.startDate)}`}
+                className="page-section__expo__type__item"
+            >
+                <img
+                    className="page-section__expo__type__item__image"
+                    alt=""
+                    src={item.coverImage}
+                />
+                <div className="page-section__expo__item__content">
+                    <h5 className="page-section__expo__item__title">
+                        {item.location}
+                    </h5>
+                    <p>van: <strong>{item.startDate}</strong></p>
+                    <p>tot: <strong>{item.endDate}</strong></p>
+                    { isPast && (
+                        <p className="text--right">Bekijk alle beelden &gt;</p>
+                    )}
+                </div>
+            </article>
+        );
+    }
+
     return (
         <PinnedSection className="page-section__expo" parentId={parentId}>
             <div className="page-section__expo__type">
@@ -200,7 +233,7 @@ function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
                 { upcoming.length === 0 && (
                     <article className="page-section__expo__type__item">
                         <div className="page-section__expo__item__content">
-                            <p><strong>Er zijn geen tentoonstellingen gepland.</strong></p>
+                            <h5>Er zijn geen tentoonstellingen gepland.</h5>
                             <p>
                                 Hou deze site in de gaten, of vul het contact formulier
                                 onderaan deze pagina in om op de hoogte te blijven.
@@ -208,44 +241,19 @@ function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
                         </div>
                     </article>
                 )}
-                { upcoming.length > 0 && upcoming.map((expoSection) => (
-                    <article className="page-section__expo__type__item">
-                        <img
-                            className="page-section__expo__type__item__image"
-                            alt=""
-                            src={expoSection.coverImage}
-                        />
-                        <div className="page-section__expo__item__content">
-                            <h5 className="page-section__expo__item__title">
-                                {expoSection.location}
-                            </h5>
-                            <p>van: <strong>{expoSection.startDate}</strong></p>
-                            <p>tot: <strong>{expoSection.endDate}</strong></p>
-                        </div>
-                    </article>
-                ))}
+                { upcoming.length > 0 && upcoming.map((expoSection) => renderItem({
+                    item: expoSection,
+                    isPast: false,
+                }))}
             </div>
             <div className="page-section__expo__type">
                 <h4 className="page-section__expo__type__title">
                     Afgelopen tentoonstellingen
                 </h4>
-                { past.length > 0 && past.map((expoSection) => (
-                    <article className="page-section__expo__type__item">
-                        <img
-                            className="page-section__expo__type__item__image"
-                            alt=""
-                            src={expoSection.coverImage}
-                        />
-                        <div className="page-section__expo__item__content">
-                            <h5 className="page-section__expo__item__title">
-                                {expoSection.location}
-                            </h5>
-                            <p>van: <strong>{expoSection.startDate}</strong></p>
-                            <p>tot: <strong>{expoSection.endDate}</strong></p>
-                            <p className="text--right">Bekijk alle beelden &gt;</p>
-                        </div>
-                    </article>
-                ))}
+                { past.length > 0 && past.map((expoSection) => renderItem({
+                    item: expoSection,
+                    isPast: true,
+                }))}
             </div>
 
         </PinnedSection>
