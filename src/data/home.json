@@ -97,31 +97,34 @@
                 "theme": "light",
                 "content": {
                     "title": "Exposities",
-                    "subTitle": "Een overzicht van afgelopen en toekomstige tentoonstellingen.",
-                    "body": [
-                        {
-                            "location": "Kerk Oeren",
-                            "startDate": "2018-08-21",
-                            "endDate": "2018-09-02",
-                            "coverImage": "./images/expo/oeren-cover.webp",
-                            "images": [
-                                "oeren-1.webp",
-                                "oeren-1.webp",
-                                "oeren-1.webp"
-                            ]
-                        },
-                        {
-                            "location": "Kasteel van Poeke",
-                            "startDate": "2011-07-03",
-                            "endDate": "2011-07-17",
-                            "coverImage": "./images/expo/poeke-2011-cover.webp",
-                            "images": [
-                                "poeke-1.webp",
-                                "poeke-1.webp",
-                                "poeke-1.webp"
-                            ]
-                        }
-                    ]
+                    "subTitle": "Een overzicht van Firmin's tentoonstellingen.",
+                    "body": {
+                        "upcoming": [],
+                        "past": [
+                            {
+                                "location": "Kerk Oeren",
+                                "startDate": "2018-08-21",
+                                "endDate": "2018-09-02",
+                                "coverImage": "./images/expo/oeren-cover.webp",
+                                "images": [
+                                    "oeren-1.webp",
+                                    "oeren-1.webp",
+                                    "oeren-1.webp"
+                                ]
+                            },
+                            {
+                                "location": "Kasteel van Poeke",
+                                "startDate": "2011-07-03",
+                                "endDate": "2011-07-17",
+                                "coverImage": "./images/expo/poeke-2011-cover.webp",
+                                "images": [
+                                    "poeke-1.webp",
+                                    "poeke-1.webp",
+                                    "poeke-1.webp"
+                                ]
+                            }
+                        ]
+                    }
                 }
             },
             {

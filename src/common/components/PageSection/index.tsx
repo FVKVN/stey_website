@@ -31,7 +31,7 @@ interface IWorkComponentProps {
 
 interface IEventComponentProps {
     parentId: string;
-    body: IExpoSection[];
+    body: IExpoSection;
 }
 
 function PageSection({ sectionData }: IComponentProps) {
@@ -43,7 +43,13 @@ function PageSection({ sectionData }: IComponentProps) {
             className="page-section"
         >
             <div className="page-section__content">
-                <header className="page-section__header">
+                <header
+                    className={
+                        classNames('page-section__header', {
+                            'page-section__header--not-sticky': sectionData.pinned,
+                        })
+                    }
+                >
                     <h2 className="page-section__title">
                         {sectionData.content.title}
                     </h2>
@@ -75,7 +81,7 @@ function renderContent(
 
     if (type === 'expo') {
         const { body } = sectionData.content;
-        return <EventContent body={body as unknown as IExpoSection[]} parentId={parentId} />;
+        return <EventContent body={body as unknown as IExpoSection} parentId={parentId} />;
     }
 
     if (type === 'work') {
@@ -138,9 +144,8 @@ function PinnedSection({ children, className, parentId }: IPinnedSectionComponen
                     scrollTrigger: {
                         trigger: `#${parentId}`,
                         scrub: true,
-                        pin: false,
+                        pin: true,
                         start: 'clamp(top top)',
-                        end: 'clamp(bottom 60%)',
                     },
                 }}
             >
@@ -173,7 +178,7 @@ function MediaContent({
                             {workSection.type}
                         </h4>
                         <span className="page-section__media__item__more">
-                            Toon meer
+                            Toon meer &gt;
                         </span>
                     </header>
                 </article>
@@ -184,16 +189,65 @@ function MediaContent({
 }
 
 function EventContent({ body, parentId }:IEventComponentProps): ReactElement {
+    const { upcoming, past } = body;
+
     return (
         <PinnedSection className="page-section__expo" parentId={parentId}>
-            {body.map((expoSection: IExpoSection) => (
-                <img
-                    key={`home-page-section-${slugify(expoSection.location)}`}
-                    className="page-section__expo__item"
-                    alt=""
-                    src={expoSection.coverImage}
-                />
-            ))}
+            <div className="page-section__expo__type">
+                <h4 className="page-section__expo__type__title">
+                    Toekomstige tentoonstellingen
+                </h4>
+                { upcoming.length === 0 && (
+                    <article className="page-section__expo__type__item">
+                        <div className="page-section__expo__item__content">
+                            <p><strong>Er zijn geen tentoonstellingen gepland.</strong></p>
+                            <p>
+                                Hou deze site in de gaten, of vul het contact formulier
+                                onderaan deze pagina in om op de hoogte te blijven.
+                            </p>
+                        </div>
+                    </article>
+                )}
+                { upcoming.length > 0 && upcoming.map((expoSection) => (
+                    <article className="page-section__expo__type__item">
+                        <img
+                            className="page-section__expo__type__item__image"
+                            alt=""
+                            src={expoSection.coverImage}
+                        />
+                        <div className="page-section__expo__item__content">
+                            <h5 className="page-section__expo__item__title">
+                                {expoSection.location}
+                            </h5>
+                            <p>van: <strong>{expoSection.startDate}</strong></p>
+                            <p>tot: <strong>{expoSection.endDate}</strong></p>
+                        </div>
+                    </article>
+                ))}
+            </div>
+            <div className="page-section__expo__type">
+                <h4 className="page-section__expo__type__title">
+                    Afgelopen tentoonstellingen
+                </h4>
+                { past.length > 0 && past.map((expoSection) => (
+                    <article className="page-section__expo__type__item">
+                        <img
+                            className="page-section__expo__type__item__image"
+                            alt=""
+                            src={expoSection.coverImage}
+                        />
+                        <div className="page-section__expo__item__content">
+                            <h5 className="page-section__expo__item__title">
+                                {expoSection.location}
+                            </h5>
+                            <p>van: <strong>{expoSection.startDate}</strong></p>
+                            <p>tot: <strong>{expoSection.endDate}</strong></p>
+                            <p className="text--right">Bekijk alle beelden &gt;</p>
+                        </div>
+                    </article>
+                ))}
+            </div>
+
         </PinnedSection>
     );
 }

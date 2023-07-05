@@ -53,14 +53,20 @@ h3 {
 
 h4 {
     font-size: max(2.5rem, 3.5vw);
+    font-family: $font-family--base;
+    font-weight: $font-weight--medium;
 }
 
 h5 {
     font-size: max(2.2rem, 3vw);
+    font-family: $font-family--base;
+    font-weight: $font-weight--medium;
 }
 
 h6 {
     font-size: max(2rem, 2.5vw);
+    font-family: $font-family--base;
+    font-weight: $font-weight--medium;
 }
 
 .pre-title {
@@ -85,6 +91,10 @@ p {
 .intro-text-pp p {
     font-size: 2vw;
     line-height: 1.2;
+}
+
+.text--right {
+    text-align: right;
 }
 
 .text--center {

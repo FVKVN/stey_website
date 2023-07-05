@@ -5,12 +5,17 @@ export interface IWorkSection {
     images: string[];
 }
 
-export interface IExpoSection {
+interface IExpoSectionDefault {
     location: string;
     startDate: string;
     endDate: string;
     coverImage: string;
     images: string[];
+}
+
+export interface IExpoSection {
+    upcoming: [] | IExpoSectionDefault[];
+    past: [] | IExpoSectionDefault[];
 }
 
 export interface IPageSectionContent {
@@ -35,7 +40,7 @@ export interface IPageSectionWork extends IPageSectionGeneric {
 export interface IPageSectionExpo extends IPageSectionGeneric {
     type: 'expo';
     content: IPageSectionContent & {
-        body: IExpoSection[];
+        body: IExpoSection;
     };
 }
 
