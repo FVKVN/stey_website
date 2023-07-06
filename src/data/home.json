@@ -1,7 +1,7 @@
 {
     "hasHero": true,
-    "heroImagePath": "./images/hero.webp",
     "pageTitle": "Firmin Steyaert",
+    "pageSubtitle": "Beeldend kunstenaar",
     "pageSections": [
             {
                 "type": "default",

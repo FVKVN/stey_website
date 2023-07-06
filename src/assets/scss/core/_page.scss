@@ -1,0 +1,16 @@
+/* ==========================================================================
+   page
+   ========================================================================== */
+
+.page {}
+
+.page__scroller {}
+
+.page__content {
+    padding: 13.5rem 3rem 3rem;
+
+    @media (min-width: $screen-md-min) {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}

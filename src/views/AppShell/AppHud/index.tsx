@@ -22,13 +22,11 @@ function AppHud() {
         }
     };
     return (
-        <>
-            <header className={`${baseClass}__header`}>
-                <a href="/" className={`${baseClass}__logo-link`}>
-                    <span className="snip-visually-hidden">Terug naar de homepage</span>
-                    <Logo className={`${baseClass}__logo-link__logo`} />
-                </a>
-            </header>
+        <header className={`${baseClass}__header`}>
+            <a href="/" className={`${baseClass}__logo-link`}>
+                <span className="snip-visually-hidden">Terug naar de homepage</span>
+                <Logo className={`${baseClass}__logo-link__logo`} />
+            </a>
             {pageData.pageSections.length > 0 && (
                 <nav className={`${baseClass}__anchors`}>
                     {pageData.pageSections.map((section) => (
@@ -49,7 +47,7 @@ function AppHud() {
                     ))}
                 </nav>
             )}
-        </>
+        </header>
     );
 }
 

@@ -3,10 +3,8 @@ import './hero.scss';
 
 interface IHeroProps {
     title: string;
+    subTitle?: string;
     id: string;
-    hasImage: boolean;
-    imagePath?: string;
-    imageAltText?: string;
 }
 
 const baseClass = 'hero';
@@ -14,14 +12,16 @@ const baseClass = 'hero';
 export default function Hero(props: IHeroProps) {
     return (
         <div id={props.id} className={baseClass}>
-            {props.hasImage && (
-                <figure className={`${baseClass}__bg`}>
-                    <img src={props.imagePath} alt={props.imageAltText} />
-                </figure>
-            )}
             <div className={`${baseClass}__content`}>
                 <h1 className={`${baseClass}__title page-title`}>
                     {props.title}
+                    { props.subTitle && (
+                        <>
+                            <br />
+                            <small>{props.subTitle}</small>
+                        </>
+                    )}
+
                 </h1>
             </div>
         </div>

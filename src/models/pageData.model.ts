@@ -59,7 +59,7 @@ export type IPageSection = IPageSectionDefault | IPageSectionWork | IPageSection
 
 export interface IPageData {
     hasHero: boolean;
-    heroImagePath?: string;
     pageTitle: string;
+    pageSubtitle: string;
     pageSections: Array<IPageSection>;
 }

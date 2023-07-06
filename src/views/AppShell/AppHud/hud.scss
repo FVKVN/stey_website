@@ -6,21 +6,15 @@
 
 .hud__header {
     position: fixed;
-    left: 0;
     top: 0;
     right: 0;
-    z-index: 300;
+    left: 0;
 
-    padding: 3rem;
     display: flex;
-    // flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-
-    mix-blend-mode: difference;
 
     @media (min-width: $screen-md-min) {
-        padding: 6rem 6rem 3rem;
+        padding: 6rem 13rem 3rem;
     }
 }
 
@@ -30,27 +24,17 @@
 }
 
 .hud__logo-link__logo {
-    fill: $color-greyscale-300;
+    fill: $color-greyscale-000;
 }
 
 .hud__anchors {
-    position: fixed;
-    right: 3rem;
-    bottom: 3rem;
     z-index: 300;
 
     display: flex;
     gap: 3rem;
     align-items: center;
-    transform: rotate(360deg);
-
-    writing-mode: vertical-lr;
-
-    mix-blend-mode: difference;
 
     @media (min-width: $screen-md-min) {
-        right: 5rem;
-        bottom: 5rem;
     }
 }
 
@@ -59,7 +43,7 @@
 
     font-size: max(1.5vw, 1.8rem);
     line-height: 1;
-    color: $color-greyscale-300;
+    color: $color-greyscale-000;
     text-decoration: none;
     text-transform: uppercase;
 }

@@ -21,6 +21,7 @@ export const defaultAppState: IAppContextInterface = {
     pageData: {
         hasHero: false,
         pageTitle: '',
+        pageSubtitle: '',
         pageSections: [
             {
                 type: 'default',
