@@ -34,16 +34,21 @@ h6 {
 
 h1 {
     line-height: 1;
-    font-size: max(6rem, 8vw);
+    font-size: 10ch;
 
     @media (min-width: $screen-md-min) {
+        font-size: max(10rem, 8vw);
     }
 }
 
 h2 {
     color: $color-greyscale-100;
-    font-size: max(6rem, 6vw);
     line-height: 1;
+    font-size: 8ch;
+
+    @media (min-width: $screen-md-min) {
+        font-size: max(8rem, 7vw);
+    }
 }
 
 h3 {

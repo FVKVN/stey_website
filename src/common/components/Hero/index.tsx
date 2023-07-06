@@ -16,10 +16,7 @@ export default function Hero(props: IHeroProps) {
                 <h1 className={`${baseClass}__title page-title`}>
                     {props.title}
                     { props.subTitle && (
-                        <>
-                            <br />
-                            <small>{props.subTitle}</small>
-                        </>
+                        <small>{props.subTitle}</small>
                     )}
 
                 </h1>

@@ -9,7 +9,7 @@
     z-index: 1;
 
     width: 100%;
-    margin-bottom: 10rem;
+    margin-bottom: 20vw;
 }
 
 
@@ -32,6 +32,12 @@
     text-transform: uppercase;
 
     small {
+        display: block;
+        margin-top: .4em;
+
         text-transform: none;
+        font-family: $font-family--base;
+        font-weight: $font-weight--light;
+        font-size: .5em;
     }
 }

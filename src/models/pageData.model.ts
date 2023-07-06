@@ -21,6 +21,8 @@ export interface IExpoSection {
 export interface IPageSectionContent {
     title: string;
     subTitle?: string;
+    image?: string;
+    imageAlt?: string;
 }
 
 export interface IPageSectionDefault extends IPageSectionGeneric {

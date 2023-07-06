@@ -33,6 +33,11 @@ function PageSection({ sectionData }: IComponentProps) {
                         {sectionData.content.title}
                     </h2>
                 </header>
+                { sectionData.content.image && (
+                    <figure className="page-section__image">
+                        <img src={sectionData.content.image} alt={sectionData.content.imageAlt} />
+                    </figure>
+                )}
                 <div className="page-section__body">
                     { sectionData.content.subTitle !== '' && (
                         <h3 className="page-section__sub-title">

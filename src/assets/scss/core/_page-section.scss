@@ -2,14 +2,14 @@
    page section
    ========================================================================== */
 
-
-
 .page-section {
     width: 100%;
+    padding: 3rem 0;
 
     background-color: $color-greyscale-200;
 
     @media (min-width: $screen-md-min) {
+        padding: 5rem 0;
     }
 }
 
@@ -35,6 +35,26 @@
     }
 }
 
+.page-section__image {
+    padding: 0;
+    margin: 0 5rem 0 5rem;
+    overflow: hidden;
+    aspect-ratio: 4/2;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+    @media (min-width: $screen-md-min) {
+        margin: -6rem 0 5rem;
+        width: 90%;
+    }
+}
+
 .page-section__body {
     position: relative;
     z-index: 1;
@@ -56,6 +76,7 @@
 
 .page-section__title {
     margin-bottom: 3rem;
+    mix-blend-mode: difference;
 }
 
 .page-section__title,
