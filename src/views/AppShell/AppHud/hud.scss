@@ -9,9 +9,11 @@
     top: 0;
     right: 0;
     left: 0;
+    z-index: 300;
 
     display: flex;
     justify-content: space-between;
+    padding: 3rem 4rem;
 
     @media (min-width: $screen-md-min) {
         padding: 6rem 13rem 3rem;
@@ -28,13 +30,13 @@
 }
 
 .hud__anchors {
-    z-index: 300;
 
-    display: flex;
+    display: none;
     gap: 3rem;
     align-items: center;
 
     @media (min-width: $screen-md-min) {
+        display: flex;
     }
 }
 
