@@ -41,8 +41,10 @@ export default function ContactContent() {
                 body: encode({ 'form-name': FORM_NAME, ...values }),
             });
             setFormState(FormState.SUCCESS);
+            console.log('success');
         } catch (error) {
             setFormState(FormState.ERROR);
+            console.log(error);
         } finally {
             setIsLoading(false);
         }
