@@ -6,7 +6,6 @@ import data from '../../data/home.json';
 import PageSection from '../../common/components/PageSection';
 import { slugify } from '../../common/utils/slugify';
 import { IPageData } from '../../models/pageData.model';
-import AppHud from '../AppShell/AppHud';
 import Hero from '../../common/components/Hero';
 
 function Home() {
@@ -18,27 +17,23 @@ function Home() {
 
     return (
         <div className="Home page">
-            <ScrollSpy>
-                <AppHud />
+            { pageData.hasHero && (
+                <Hero
+                    id="homepage-hero"
+                    title={pageData.pageTitle}
+                    subTitle={pageData.pageSubtitle}
+                />
+            ) }
+            <div className="page__content">
+                <ScrollSpy useBoxMethod={false} scrollThrottle={100}>
+                    {pageData.pageSections.length > 0 && (
+                        pageData.pageSections.map((section) => (
+                            <PageSection key={slugify(section.content.title)} sectionData={section} />
+                        ))
+                    )}
+                </ScrollSpy>
 
-                <div className="page__scroller">
-
-                    <div className="page__content">
-                        { pageData.hasHero && (
-                            <Hero
-                                id="homepage-hero"
-                                title={pageData.pageTitle}
-                                subTitle={pageData.pageSubtitle}
-                            />
-                        ) }
-                        {pageData.pageSections.length > 0 && (
-                            pageData.pageSections.map((section) => (
-                                <PageSection key={slugify(section.content.title)} sectionData={section} />
-                            ))
-                        )}
-                    </div>
-                </div>
-            </ScrollSpy>
+            </div>
 
         </div>
     );

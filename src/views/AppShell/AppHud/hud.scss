@@ -11,26 +11,49 @@
     left: 0;
     z-index: 300;
 
+    padding: 3rem;
     display: flex;
     justify-content: space-between;
-    padding: 3rem 4rem;
+    align-items: center;
+
+    transition: all .3s $snip-ease-sine-in-out;
+
+    &--scrolled {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        background-color: $color-greyscale-300;
+    }
 
     @media (min-width: $screen-md-min) {
         padding: 6rem 13rem 3rem;
+
+        &--scrolled {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
     }
+
+
+}
+
+.active-scroll-spy {
+    background-color: yellowgreen;
+    border-radius: 15px;
 }
 
 .hud__logo-link {
-    display: inline-block;
+    display: block;
     flex: 0 0 auto;
 }
 
 .hud__logo-link__logo {
+    display: block;
+
     fill: $color-greyscale-000;
 }
 
 .hud__anchors {
-
     display: none;
     gap: 3rem;
     align-items: center;
@@ -43,9 +66,13 @@
 .hud__anchor {
     display: inline-block;
 
-    font-size: max(1.5vw, 1.8rem);
+    font-size: 1.4rem;
     line-height: 1;
     color: $color-greyscale-000;
     text-decoration: none;
     text-transform: uppercase;
+
+    @media (min-width: $screen-md-min) {
+        font-size: 1.8rem;
+    }
 }

@@ -1,3 +1,3 @@
-export const camalize = (string) => (
+export const camalize = (string:string) => (
     string.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())
 );

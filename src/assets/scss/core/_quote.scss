@@ -4,26 +4,25 @@
 .quote {
     margin: 0;
     padding: 0;
+    width: calc(100% + 3rem);
+    transform: translate3d(-3rem, 0, 0);
+
+    @media (min-width: $screen-md-min) {
+        width: calc(100% + 10rem);
+        transform: translate3d(-10rem, 0, 0);
+    }
 }
 
 .quote__quote {
     margin: 0;
-    padding: 2rem 2rem 2rem 4rem;
 
-    background-color: $color-greyscale-300;
-
-    border-left: 1rem solid $color-greyscale-000;
-
-    font-size: max(2.2rem, 2vw);
+    font-size: max(2.2rem, 3.5vw);
     font-family: $font-family--headings;
-
-    @media (min-width: $screen-md-min) {
-        padding: 6rem 6rem 6rem 15.4rem;
-    }
+    letter-spacing: -.02em;
 }
 
 .quote__author {
     margin-top: 2rem;
 
-    font-size: max(1.4rem, 1.3vw);
+    font-size: max(1.4rem, 2vw);
 }

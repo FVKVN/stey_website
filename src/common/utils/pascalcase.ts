@@ -1,5 +1,5 @@
 /* eslint-disable prefer-regex-literals */
-export const pascalize = (string) => (
+export const pascalize = (string:string) => (
     string
         .toLowerCase()
         .replace(new RegExp(/[-_]+/, 'g'), ' ')

@@ -20,6 +20,7 @@ export const defaultAppState: IAppContextInterface = {
     updateCookieSettings: () => {},
     pageData: {
         hasHero: false,
+        theme: 'light',
         pageTitle: '',
         pageSubtitle: '',
         pageSections: [

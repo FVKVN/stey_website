@@ -1,4 +1,6 @@
-import React, { MouseEvent, createRef } from 'react';
+import React, { MouseEvent, useEffect, useState } from 'react';
+import { debounce } from 'lodash';
+import classNames from 'classnames';
 import { ReactComponent as Logo } from '../../../assets/svg/stey.svg';
 import { useAppContext } from '../App/app.context';
 
@@ -9,6 +11,18 @@ const baseClass = 'hud';
 
 function AppHud() {
     const { pageData } = useAppContext();
+    const [hasScrolled, setHassScrolled] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', debounce(
+                () => {
+                    setHassScrolled(window.scrollY > 0);
+                },
+                20,
+            ));
+        }
+    }, [hasScrolled]);
 
     const clickHandler = (e: MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
@@ -22,7 +36,15 @@ function AppHud() {
         }
     };
     return (
-        <header className={`${baseClass}__header`}>
+        <header
+            className={
+                classNames(
+                    'hud__header', {
+                        'hud__header--scrolled': hasScrolled,
+                    },
+                )
+            }
+        >
             <a href="/" className={`${baseClass}__logo-link`}>
                 <span className="snip-visually-hidden">Terug naar de homepage</span>
                 <Logo className={`${baseClass}__logo-link__logo`} />
@@ -35,14 +57,10 @@ function AppHud() {
                             key={`anchor-item-to-${slugify(section.content.title)}`}
                             className={`${baseClass}__anchor`}
                             onClick={(e) => clickHandler(e)}
-                            ref={createRef()}
+                            data-to-scrollspy-id={slugify(section.content.title)}
+                            id={`content-anchor-${slugify(section.content.title)}`}
                         >
-                            <div
-                                data-to-scrollspy-id={slugify(section.content.title)}
-                                className={`${baseClass}__anchor__inner`}
-                            >
-                                {section.content.title}
-                            </div>
+                            {section.content.title}
                         </a>
                     ))}
                 </nav>

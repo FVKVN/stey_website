@@ -7,28 +7,26 @@
 .CookieConsent {
     max-width: 650px;
     width: 60%;
-
-    font-size: 15px;
+    padding: 3rem;
 
     p {
-        font-size: 1em;
+        margin: 0;
     }
 
     a {
+        color: $color-text;
         font-size: 1em;
         font-weight: inherit;
         letter-spacing: normal;
     }
 
     .CookieConsent__actions {
+        margin-top: 3rem;
+
         text-align: center;
     }
 
     @media (max-width: $screen-xs-max) {
         width: 95%;
-
-        .modal__content {
-            padding: spacing(sm) spacing(md) spacing(md);
-        }
     }
 }

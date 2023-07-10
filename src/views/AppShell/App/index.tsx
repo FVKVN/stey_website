@@ -4,7 +4,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import { injectGTMinHead, logCookieSettings, removeGTMfromHead } from '../../../common/utils/analytics/analytics';
 import { LOCAL_STORAGE_ALLOW_ANALYTICS_KEY, LOCAL_STORAGE_CONSENT_KEY } from '../../../config/state.config';
 import { AppContext, defaultAppState, IAppContextInterface, IUpdateCookieSettings } from './app.context';
-// import AppHud from '../AppHud';
+import AppHud from '../AppHud';
 import CookieConsent from '../CookieConsent';
 import CookiesModal from '../CookiesModal';
 import AppRouter from '../AppRouter';
@@ -54,7 +54,7 @@ function App() {
     return (
         <AppContext.Provider value={defaultAppContextValues}>
             <div className="App" ref={containerRef}>
-                {/* <AppHud /> */}
+                <AppHud />
                 <AppRouter />
                 <CookieConsent />
                 <CookiesModal isOpen={showCookieSettings} onRequestClose={() => setShowCookieSettings(false)} />

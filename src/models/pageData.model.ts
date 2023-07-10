@@ -63,5 +63,6 @@ export interface IPageData {
     hasHero: boolean;
     pageTitle: string;
     pageSubtitle: string;
+    theme: string;
     pageSections: Array<IPageSection>;
 }

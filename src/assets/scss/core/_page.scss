@@ -7,9 +7,5 @@
 .page__scroller {}
 
 .page__content {
-    padding: 10.5rem 3rem 3rem;
 
-    @media (min-width: $screen-md-min) {
-        padding: 13.5rem 10rem 3rem;
-    }
 }

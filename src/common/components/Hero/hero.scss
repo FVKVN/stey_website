@@ -9,7 +9,12 @@
     z-index: 1;
 
     width: 100%;
-    margin-bottom: 20vw;
+    margin-bottom: 15vh;
+    padding: 10.5rem 2rem 3rem;
+
+    @media (min-width: $screen-md-min) {
+        padding: 13.5rem 10rem 3rem;
+    }
 }
 
 
@@ -29,7 +34,6 @@
 
     line-height: .8;
     color: $color-greyscale-000;
-    text-transform: uppercase;
 
     small {
         display: block;
@@ -38,6 +42,6 @@
         text-transform: none;
         font-family: $font-family--base;
         font-weight: $font-weight--light;
-        font-size: .5em;
+        font-size: .7em;
     }
 }

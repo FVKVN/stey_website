@@ -4,29 +4,23 @@
 import React, { ReactElement } from 'react';
 import {
     IExpoSection,
-    IExpoSectionDefault,
     IPageSection,
     IWorkSection,
 } from '../../../models/pageData.model';
 import { slugify } from '../../utils/slugify';
+import MediaContent from './contentComponents/MediaContent';
+import EventContent from './contentComponents/EventContent';
+import ContactContent from './contentComponents/contactComponent';
 
 interface IComponentProps {
     sectionData: IPageSection;
-}
-
-interface IWorkComponentProps {
-    body: IWorkSection[];
-}
-
-interface IEventComponentProps {
-    body: IExpoSection;
 }
 
 function PageSection({ sectionData }: IComponentProps) {
     const parentId = slugify(sectionData.content.title);
 
     return (
-        <div id={parentId} className="page-section">
+        <div id={parentId} className="page-section" data-theme={sectionData.theme}>
             <div className="page-section__content">
                 <header className="page-section__header">
                     <h2 className="page-section__title">
@@ -89,112 +83,6 @@ function renderBlockContent(body:string[]): ReactElement {
                 />
             ))}
         </>
-    );
-}
-
-function MediaContent({
-    body,
-}:IWorkComponentProps): ReactElement {
-    return (
-        <div className="page-section__media">
-            {body.map((workSection: IWorkSection) => (
-                <article
-                    key={`home-page-section-${slugify(workSection.type)}`}
-                    className="page-section__media__item"
-                >
-                    <img
-                        className="page-section__media__item__image"
-                        alt=""
-                        src={workSection.coverImage}
-                    />
-                    <header className="page-section__media__item__header">
-                        <h4 className="page-section__media__item__title">
-                            {workSection.type}
-                        </h4>
-                        <span className="page-section__media__item__more">
-                            Toon meer &gt;
-                        </span>
-                    </header>
-                </article>
-
-            ))}
-        </div>
-    );
-}
-
-function EventContent({ body }:IEventComponentProps): ReactElement {
-    const { upcoming, past } = body;
-
-    function renderItem({
-        item,
-        isPast,
-    }: {
-        item: IExpoSectionDefault;
-        isPast: boolean;
-    }) {
-        return (
-            <article
-                key={`${slugify(item.location)}-${slugify(item.startDate)}`}
-                className="page-section__expo__type__item"
-            >
-                <img
-                    className="page-section__expo__type__item__image"
-                    alt=""
-                    src={item.coverImage}
-                />
-                <div className="page-section__expo__item__content">
-                    <h5 className="page-section__expo__item__title">
-                        {item.location}
-                    </h5>
-                    <p>van: <strong>{item.startDate}</strong></p>
-                    <p>tot: <strong>{item.endDate}</strong></p>
-                    { isPast && (
-                        <p className="text--right">Bekijk alle beelden &gt;</p>
-                    )}
-                </div>
-            </article>
-        );
-    }
-
-    return (
-        <div className="page-section__expo">
-            <div className="page-section__expo__type">
-                <h4 className="page-section__expo__type__title">
-                    Toekomstige tentoonstellingen
-                </h4>
-                { upcoming.length === 0 && (
-                    <article className="page-section__expo__type__item">
-                        <div className="page-section__expo__item__content">
-                            <h4>Er zijn geen tentoonstellingen gepland.</h4>
-                            <p>
-                                Hou deze site in de gaten, of vul het contact formulier
-                                onderaan deze pagina in om op de hoogte te blijven.
-                            </p>
-                        </div>
-                    </article>
-                )}
-                { upcoming.length > 0 && upcoming.map((expoSection) => renderItem({
-                    item: expoSection,
-                    isPast: false,
-                }))}
-            </div>
-            <div className="page-section__expo__type">
-                <h4 className="page-section__expo__type__title">
-                    Afgelopen tentoonstellingen
-                </h4>
-                { past.length > 0 && past.map((expoSection) => renderItem({
-                    item: expoSection,
-                    isPast: true,
-                }))}
-            </div>
-
-        </div>
-    );
-}
-
-function ContactContent():ReactElement {
-    return (
-        <div />
     );
 }
 
