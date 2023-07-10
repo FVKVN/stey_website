@@ -12,11 +12,12 @@
 
     position: relative;
 
-    padding: .45em 1.4em;
+    padding: .9em 1.4em;
 
     border-radius: 0;
 
-    font-size: .9rem;
+    font-size: max(1.8rem, 1.5vw);
+    line-height: 1;
     font-weight: $font-weight--medium;
     color: $color-greyscale-300;
 }
@@ -31,6 +32,22 @@
 
         &:active {
             background-color: $color-greyscale-000;
+        }
+    }
+}
+
+.button--secondary {
+    background: $color-greyscale-300;
+
+    color: $color-greyscale-000;
+
+    &:not(:disabled) {
+        @include hover-focus() {
+            background-color: $color-greyscale-100;
+        }
+
+        &:active {
+            background-color: $color-greyscale-300;
         }
     }
 }

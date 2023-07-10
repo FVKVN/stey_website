@@ -9,14 +9,16 @@ $white: #FFFFFF;
 
 $blue: #02ffc0;
 $red: #f80e40;
+$yellow: #ffd500;
 
 $color-greyscale-000: $black;
 $color-greyscale-100: $grey-dark;
 $color-greyscale-200: $grey;
 $color-greyscale-300: $white;
 
+$color-primary: $blue;
 $color-text: $color-greyscale-000;
-$color-focus: $blue;
+$color-focus: $yellow;
 $color-success: #0000C7;
 $color-error: $red;
 $color-text-alt: $color-greyscale-000;
