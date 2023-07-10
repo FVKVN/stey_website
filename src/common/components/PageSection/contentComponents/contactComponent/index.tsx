@@ -30,24 +30,25 @@ export default function ContactContent() {
     const [isLoading, setIsLoading] = useState(false);
     const [formState, setFormState] = useState<FormState>(FormState.INITIAL);
 
-    const onSubmit = async (values: IContactPayload) => {
+    const onSubmit = (values: IContactPayload) => {
         setIsLoading(true);
         setFormState(FormState.INITIAL);
 
-        try {
-            await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: encode({ 'form-name': FORM_NAME, ...values }),
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': FORM_NAME, ...values }),
+        })
+            .then(() => {
+                setFormState(FormState.SUCCESS);
+                setIsLoading(false);
+                console.log('success');
+            })
+            .catch((error) => {
+                setFormState(FormState.ERROR);
+                setIsLoading(false);
+                console.warn(error);
             });
-            setFormState(FormState.SUCCESS);
-            console.log('success');
-        } catch (error) {
-            setFormState(FormState.ERROR);
-            console.log(error);
-        } finally {
-            setIsLoading(false);
-        }
     };
 
     return (
