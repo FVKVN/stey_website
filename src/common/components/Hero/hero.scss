@@ -9,8 +9,13 @@
     z-index: 1;
 
     width: 100%;
+    min-height: 50vh;
     margin-bottom: 15vh;
     padding: 10.5rem 2rem 3rem;
+
+    @media (min-width: $screen-sm-min) {
+        min-height: auto;
+    }
 
     @media (min-width: $screen-md-min) {
         padding: 13.5rem 10rem 3rem;

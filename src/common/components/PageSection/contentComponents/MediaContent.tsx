@@ -26,7 +26,7 @@ export default function MediaContent({
                             {workSection.type}
                         </h4>
                         <span className="page-section__media__item__more">
-                            Toon meer &gt;
+                            Toon meer <strong className="more-plus">+</strong>
                         </span>
                     </header>
                 </article>

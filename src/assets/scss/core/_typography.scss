@@ -34,7 +34,7 @@ h6 {
 
 h1 {
     line-height: 1;
-    font-size: 14ch;
+    font-size: 12ch;
     letter-spacing: -.02em;
 
     @media (min-width: $screen-md-min) {
@@ -45,7 +45,7 @@ h1 {
 h2 {
     color: $color-greyscale-100;
     line-height: 1;
-    font-size: 12ch;
+    font-size: 10ch;
     letter-spacing: -.02em;
 
     @media (min-width: $screen-md-min) {
@@ -127,4 +127,11 @@ p {
     @media (min-width: $screen-md-min) {
         font-size: 35px;
     }
+}
+
+.more-plus {
+    vertical-align: middle;
+    font-size: 2em;
+    line-height: 1;
+    font-weight: $font-weight--medium;
 }

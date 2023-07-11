@@ -148,7 +148,7 @@ export default function ContactContent() {
                             })
                         }
                     >
-                        <label className="form-label" htmlFor="message">
+                        <label className="form-label form-label--multiline" htmlFor="message">
                             <Field
                                 id="message"
                                 className="form-control"

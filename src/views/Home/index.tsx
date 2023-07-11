@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 
-import ScrollSpy from 'react-ui-scrollspy';
 import { useAppContext } from '../AppShell/App/app.context';
 import data from '../../data/home.json';
 import PageSection from '../../common/components/PageSection';
@@ -25,14 +24,11 @@ function Home() {
                 />
             ) }
             <div className="page__content">
-                <ScrollSpy useBoxMethod={false} scrollThrottle={100}>
-                    {pageData.pageSections.length > 0 && (
-                        pageData.pageSections.map((section) => (
-                            <PageSection key={slugify(section.content.title)} sectionData={section} />
-                        ))
-                    )}
-                </ScrollSpy>
-
+                {pageData.pageSections.length > 0 && (
+                    pageData.pageSections.map((section) => (
+                        <PageSection key={slugify(section.content.title)} sectionData={section} />
+                    ))
+                )}
             </div>
 
         </div>

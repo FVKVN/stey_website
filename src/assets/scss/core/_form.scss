@@ -28,7 +28,7 @@
     display: block;
 
     + .form-group {
-        margin-top: 2rem;
+        margin-top: 5em;
     }
 
     &--has-error {
@@ -47,28 +47,34 @@
 
     display: block;
 
-    font-size: max(1.8rem, 1.5vw);
+    font-size: max(1.4rem, 1.5vw);
     font-weight: $font-weight--medium;
 
     span {
         position: absolute;
-        top: -.95rem;
+        top: 50%;
         left: 2rem;
         z-index: 0;
 
         display: inline-block;
         padding: .3rem;
-        transform: translate3d(0, calc(50% + .4rem), 0);
+        transform: translate3d(0, -50%, 0);
 
         color: $color-greyscale-300;
         font-size: 1em;
 
-        transition: transform .3s $snip-ease-sine-in-out, font-weight .3s $snip-ease-sine-in-out;
+        transition:
+            transform .3s $snip-ease-sine-in-out,
+            font-size .3s $snip-ease-sine-in-out;
+    }
+
+    &--multiline span {
+        top: 15%;
     }
 
     .form-group--has-error & > input:not(:placeholder-shown) ~ span,
     &:focus-within > span {
-        transform: none;
+        transform: translate3d(0, -150%, 0);
 
         background: $color-greyscale-000;
 
@@ -93,7 +99,7 @@ input:-webkit-autofill:focus {
 .form-control {
     display: block;
     width: 100%;
-    max-width: 600px;
+    max-width: 30em;
     padding: 2rem;
 
     background: transparent;
@@ -135,7 +141,7 @@ input:-webkit-autofill:focus {
 }
 
 textarea {
-    min-height: 20rem;
+    min-height: 10em;
 }
 
 .form-error {

@@ -37,11 +37,6 @@
 
 }
 
-.active-scroll-spy {
-    background-color: yellowgreen;
-    border-radius: 15px;
-}
-
 .hud__logo-link {
     display: block;
     flex: 0 0 auto;
@@ -64,6 +59,8 @@
 }
 
 .hud__anchor {
+    position: relative;
+
     display: inline-block;
 
     font-size: 1.4rem;
@@ -71,6 +68,29 @@
     color: $color-greyscale-000;
     text-decoration: none;
     text-transform: uppercase;
+
+    &:after {
+        @include snip-pseudo();
+        left: 50%;
+        bottom: -.4em;
+
+        height: .1em;
+        width: .5rem;
+        transform: translate3d(0, -50%, 0) scaleX(0);
+
+        background: $color-greyscale-000;
+        opacity: 0;
+
+        transition: transform .5s $snip-ease-sine-in-out, opacity .3s $snip-ease-sine-in-out;
+    }
+
+    &--active {
+        &:after {
+            transform: translate3d(0, -50%, 0) scaleX(10);
+
+            opacity: 1;
+        }
+    }
 
     @media (min-width: $screen-md-min) {
         font-size: 1.8rem;
