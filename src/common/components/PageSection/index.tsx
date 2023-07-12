@@ -11,6 +11,7 @@ import { slugify } from '../../utils/slugify';
 import MediaContent from './contentComponents/MediaContent';
 import EventContent from './contentComponents/EventContent';
 import ContactContent from './contentComponents/contactComponent';
+import TrailAnimation from '../trailAnimation';
 
 interface IComponentProps {
     sectionData: IPageSection;
@@ -23,23 +24,30 @@ function PageSection({ sectionData }: IComponentProps) {
         <div id={parentId} className="page-section" data-theme={sectionData.theme}>
             <div className="page-section__content">
                 <header className="page-section__header">
-                    <h2 className="page-section__title">
-                        {sectionData.content.title}
-                    </h2>
+                    <TrailAnimation>
+                        <h2 className="page-section__title">
+                            {sectionData.content.title}
+                        </h2>
+                    </TrailAnimation>
                 </header>
                 { sectionData.content.image && (
-                    <figure className="page-section__image">
-                        <img src={sectionData.content.image} alt={sectionData.content.imageAlt} />
-                    </figure>
+                    <TrailAnimation>
+                        <figure className="page-section__image">
+                            <img src={sectionData.content.image} alt={sectionData.content.imageAlt} />
+                        </figure>
+                    </TrailAnimation>
                 )}
-                <div className="page-section__body">
-                    { sectionData.content.subTitle !== '' && (
-                        <h3 className="page-section__sub-title">
-                            {sectionData.content.subTitle}
-                        </h3>
-                    )}
-                    { renderContent(sectionData) }
-                </div>
+                <TrailAnimation>
+                    <div className="page-section__body">
+                        { sectionData.content.subTitle !== '' && (
+                            <h3 className="page-section__sub-title">
+                                {sectionData.content.subTitle}
+                            </h3>
+                        )}
+                        { renderContent(sectionData) }
+                    </div>
+                </TrailAnimation>
+
             </div>
         </div>
     );

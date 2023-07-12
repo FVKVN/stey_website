@@ -1,5 +1,6 @@
 import React from 'react';
 import './hero.scss';
+import TrailAnimation from '../trailAnimation';
 
 interface IHeroProps {
     title: string;
@@ -14,10 +15,12 @@ export default function Hero(props: IHeroProps) {
         <div id={props.id} className={baseClass}>
             <div className={`${baseClass}__content`}>
                 <h1 className={`${baseClass}__title page-title`}>
-                    {props.title}
-                    { props.subTitle && (
-                        <small>{props.subTitle}</small>
-                    )}
+                    <TrailAnimation>
+                        {props.title}
+                        { props.subTitle && (
+                            <small>{props.subTitle}</small>
+                        )}
+                    </TrailAnimation>
 
                 </h1>
             </div>
