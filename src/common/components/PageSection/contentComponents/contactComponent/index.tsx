@@ -115,7 +115,13 @@ export default function ContactContent() {
                         }
                     >
                         <label className="form-label" htmlFor="email">
-                            <Field id="email" className="form-control" type="email" name="email" placeholder="E-mail" />
+                            <Field
+                                id="email"
+                                className="form-control"
+                                type="email"
+                                name="email"
+                                placeholder="E-mail"
+                            />
                             <span>
                                 E-mail
                             </span>
@@ -175,6 +181,7 @@ export default function ContactContent() {
                 </Form>
             )}
         </Formik>
+
     );
 }
 

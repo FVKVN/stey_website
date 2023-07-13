@@ -127,7 +127,7 @@ input:-webkit-autofill:focus {
     }
 
     &:not(:placeholder-shown) + span {
-        transform: none;
+        transform: translate3d(0, -150%, 0);
 
         background: $color-greyscale-000;
 

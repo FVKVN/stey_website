@@ -27,7 +27,7 @@
 }
 
 .CookiesModal__settings {
-    margin-top: spacing(xxl);
+    margin-top: 3rem;
 }
 
 .CookiesModal__settings__action {
@@ -35,14 +35,13 @@
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 100;
 
-    padding: spacing(xs) 0;
+    padding: 3rem 0;
 
-    background-color: $color-greyscale-200;
+    background-color: $color-greyscale-300;
+
+    border-top: 1px solid $color-greyscale-000;
 
     text-align: right;
-
-    @media (min-width: $screen-xs-min) {
-        padding: spacing(sm) 0;
-    }
 }

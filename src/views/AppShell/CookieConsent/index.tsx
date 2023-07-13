@@ -1,7 +1,6 @@
 import { useLocalStorage } from 'usehooks-ts';
 import Button from '../../../common/components/Button';
 import Modal from '../../../common/components/Modal';
-import OutgoingLink from '../../../common/components/OutgoingLink';
 import { LOCAL_STORAGE_CONSENT_KEY } from '../../../config/state.config';
 import { useAppContext } from '../App/app.context';
 import './cookie-consent.scss';
@@ -9,13 +8,23 @@ import './cookie-consent.scss';
 const CLASS_NAME = 'CookieConsent';
 
 function CookieConsent() {
-    const { showCookieSettings, setShowCookieSettings } = useAppContext();
+    const {
+        showCookieSettings,
+        setShowCookieSettings,
+        updateCookieSettings,
+        setShowPrivacyPolicy,
+    } = useAppContext();
     const [dismissedCookieConsent] = useLocalStorage<boolean>(LOCAL_STORAGE_CONSENT_KEY, false);
-    const { updateCookieSettings } = useAppContext();
 
     const onShowCookieSettings = () => {
         if (typeof setShowCookieSettings === 'function') {
             setShowCookieSettings(true);
+        }
+    };
+
+    const onShowPrivacyPolicy = () => {
+        if (typeof setShowPrivacyPolicy === 'function') {
+            setShowPrivacyPolicy(true);
         }
     };
 
@@ -37,9 +46,14 @@ function CookieConsent() {
             <p>
                 Deze website gebruikt cookies voor analysedoeleinden.
                 {' '}
-                <OutgoingLink href="https://www.delijn.be/nl/content/privacy/">
+                <Button
+                    id="show-privacy-policy"
+                    className={`${CLASS_NAME}__privacy-policy`}
+                    typeName="text"
+                    onClick={onShowPrivacyPolicy}
+                >
                     Bekijk ons privacybeleid
-                </OutgoingLink>
+                </Button>
                 .
             </p>
             <div className={`${CLASS_NAME}__actions`}>

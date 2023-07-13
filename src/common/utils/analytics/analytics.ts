@@ -1,4 +1,5 @@
 import { GTM_ELEMENT_ID } from '../../../config/dom.config';
+import { LOCAL_STORAGE_ALLOW_ANALYTICS_KEY } from '../../../config/state.config';
 
 const GTM_ID = 'GTM-KXPQWVM';
 const GTM_SCRIPT = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -43,6 +44,11 @@ function sendEventToGTM({
     customData?: object;
 }) {
     if (process.env.NODE_ENV === 'test') {
+        return;
+    }
+    const hasAllowedAnalytics = localStorage.getItem(LOCAL_STORAGE_ALLOW_ANALYTICS_KEY);
+
+    if (!hasAllowedAnalytics) {
         return;
     }
 

@@ -32,7 +32,7 @@
             color: $color-error;
 
             &:before {
-                color: $color-greyscale-000;
+                color: $color-greyscale-100;
 
                 transition-delay: .2s;
             }
@@ -62,15 +62,11 @@
             padding: 0 0 0 2em;
             margin: 0;
 
-            font-size: 1em;
+            font-size: max(1.6rem, 1.2vw);
 
             cursor: pointer;
 
             &:before {
-                // @extend %icon;
-                // @extend %icon-check;
-                // not needed for now
-
                 position: absolute;
                 top: .2em;
                 left: .15em;
@@ -100,9 +96,9 @@
                 height: 1.33em;
                 margin: 0;
 
-                background: $color-greyscale-000;
+                background: $color-greyscale-100;
 
-                border: 1px solid rgba($color-greyscale-000, .15);
+                border: 1px solid rgba($color-greyscale-100, .15);
                 border-radius: .2em;
 
                 transition: border-color .2s ease;
@@ -110,7 +106,7 @@
         }
 
         &:focus + label:after {
-            box-shadow: 0 0 10px 0 $color-greyscale-000;
+            box-shadow: 0 0 10px 0 $color-greyscale-200;
         }
 
         @include nonKeyboardfocus() {

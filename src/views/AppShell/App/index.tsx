@@ -8,6 +8,8 @@ import AppHud from '../AppHud';
 import CookieConsent from '../CookieConsent';
 import CookiesModal from '../CookiesModal';
 import AppRouter from '../AppRouter';
+import PrivacyPolicyModal from '../PrivacyPolicyModal';
+import AppFooter from '../AppFooter';
 
 function App() {
     const containerRef = useRef<HTMLDivElement>(null!);
@@ -15,6 +17,7 @@ function App() {
     const [, setCookieConsent] = useLocalStorage<boolean>(LOCAL_STORAGE_CONSENT_KEY, false);
     const [showCookieSettings, setShowCookieSettings] = useState(defaultAppState.showCookieSettings);
     const [pageData, setPageData] = useState(defaultAppState.pageData);
+    const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(defaultAppState.showPrivacyPolicy);
 
     if (allowAnalytics) {
         injectGTMinHead();
@@ -44,20 +47,23 @@ function App() {
             containerRef,
             showCookieSettings,
             setShowCookieSettings,
+            showPrivacyPolicy,
+            setShowPrivacyPolicy,
             updateCookieSettings,
             pageData,
             setPageData,
         };
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [showCookieSettings, pageData]);
-
     return (
         <AppContext.Provider value={defaultAppContextValues}>
             <div className="App" ref={containerRef}>
                 <AppHud />
                 <AppRouter />
+                <AppFooter />
                 <CookieConsent />
                 <CookiesModal isOpen={showCookieSettings} onRequestClose={() => setShowCookieSettings(false)} />
+                <PrivacyPolicyModal isOpen={showPrivacyPolicy} onRequestClose={() => setShowPrivacyPolicy(false)} />
             </div>
         </AppContext.Provider>
     );

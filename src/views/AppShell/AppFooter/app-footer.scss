@@ -1,0 +1,59 @@
+/* ==========================================================================
+   app footer
+   ========================================================================== */
+
+@import '../../../assets/scss/imports';
+
+.app-footer {
+    padding: 3rem;
+
+    background-color: $color-greyscale-200;
+}
+
+.app-footer__inner {
+    @media (min-width: $screen-md-min) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.app-footer__item {
+    margin: 0;
+
+    text-align: center;
+    font-size: max(1.6rem, 1.3vw);
+    color: $color-greyscale-000;
+
+    + .app-footer__item {
+        position: relative;
+
+        margin-top: 3rem;
+
+        &:before {
+            @include snip-pseudo();
+
+            top: -1.5rem;
+            left: 50%;
+
+            width: 1.2em;
+            height: .1rem;
+            margin-left: -.6em;
+
+            background-color: $color-greyscale-000;
+        }
+
+        @media (min-width: $screen-md-min) {
+            margin-top: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    a {
+        font-weight: $font-weight--medium;
+        text-decoration: none;
+        color: $color-greyscale-000;
+    }
+}

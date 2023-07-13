@@ -9,6 +9,8 @@ export interface IUpdateCookieSettings {
 export interface IAppContextInterface {
     showCookieSettings: boolean;
     setShowCookieSettings: (showCookieSettings: boolean) => void;
+    showPrivacyPolicy: boolean;
+    setShowPrivacyPolicy: (showPrivacyPolicy: boolean) => void;
     updateCookieSettings: ({ allowAnalytics, dismissedCookieConsent }: IUpdateCookieSettings) => void;
     pageData: IPageData;
     setPageData: (newPageData: IPageData) => void;
@@ -17,6 +19,8 @@ export interface IAppContextInterface {
 export const defaultAppState: IAppContextInterface = {
     showCookieSettings: false,
     setShowCookieSettings: () => {},
+    showPrivacyPolicy: false,
+    setShowPrivacyPolicy: () => {},
     updateCookieSettings: () => {},
     pageData: {
         hasHero: false,

@@ -5,7 +5,6 @@ import Modal from '../../../common/components/Modal';
 import { LOCAL_STORAGE_ALLOW_ANALYTICS_KEY } from '../../../config/state.config';
 import Button from '../../../common/components/Button';
 import Checkbox from '../../../common/components/Checkbox';
-import OutgoingLink from '../../../common/components/OutgoingLink';
 import { useAppContext } from '../App/app.context';
 
 function CookiesModal({ isOpen, onRequestClose }: { isOpen: boolean; onRequestClose: () => void }) {
@@ -58,8 +57,6 @@ function CookiesModal({ isOpen, onRequestClose }: { isOpen: boolean; onRequestCl
                 Klik op de namen voor de verschillende categorieën voor meer informatie en om onze standaardinstellingen
                 te wijzigen. Weest u zich er echter wel van bewust dat het blokkeren van sommige soorten cookies uw
                 ervaring van de website en de door ons aangeboden diensten nadelig kan beïnvloeden.
-                <br />
-                <OutgoingLink href="https://www.delijn.be/nl/voettekst/privacy.html">Meer informatie</OutgoingLink>
             </p>
             <p>
                 <Button id="cookie-settings-allow-all" typeName="primary" onClick={acceptAll}>

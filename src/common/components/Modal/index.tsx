@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+
 import ReactModal from 'react-modal';
 import classNames from 'classnames';
 import './modal.scss';
@@ -34,8 +35,18 @@ export default function Modal({
 }: IPublicProps) {
     ReactModal.setAppElement('#root');
 
+    function open() {
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        document.body.style.overflow = 'unset';
+    }
+
     return (
         <ReactModal
+            onAfterOpen={open}
+            onAfterClose={close}
             isOpen={isOpen}
             onRequestClose={onRequestClose}
             className={classNames(CLASS_NAME, className, { wide: type === 'wide' })}
