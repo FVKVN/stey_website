@@ -46,7 +46,7 @@ function sendEventToGTM({
     if (process.env.NODE_ENV === 'test') {
         return;
     }
-    const hasAllowedAnalytics = localStorage.getItem(LOCAL_STORAGE_ALLOW_ANALYTICS_KEY);
+    const hasAllowedAnalytics = localStorage.getItem(LOCAL_STORAGE_ALLOW_ANALYTICS_KEY) === 'true';
 
     if (!hasAllowedAnalytics) {
         return;

@@ -24,6 +24,16 @@
     font-size: max(1.6rem, 1.3vw);
     color: $color-greyscale-000;
 
+    .button {
+        padding: 0;
+
+        font-size: inherit;
+
+        + .button {
+            margin-left: 1em;
+        }
+    }
+
     + .app-footer__item {
         position: relative;
 
@@ -53,7 +63,7 @@
 
     a {
         font-weight: $font-weight--medium;
-        text-decoration: none;
         color: $color-greyscale-000;
+        vertical-align: middle;
     }
 }
