@@ -8,15 +8,49 @@ import { useAppContext } from '../App/app.context';
 import './hud.scss';
 import { slugify } from '../../../common/utils/slugify';
 import { getActiveNavigationId } from '../../../common/utils/navigation';
+import Button from '../../../common/components/Button';
 
 const baseClass = 'hud';
+const querySize = 992;
+
+interface IQuery {
+    matches: boolean;
+}
 
 function AppHud() {
     const { pageData } = useAppContext();
     const [hasScrolled, setHassScrolled] = useState<boolean>(false);
+    const [anchorsOpen, setAnchorsOpen] = useState<boolean>(false);
+    const [query, setQuery] = useState<IQuery>({
+        matches: window.innerWidth < querySize,
+    });
     const [activeId, setActiveId] = useState<string>();
     const [, api] = useSpring(() => ({ y: 0 }));
     let isStopped = false;
+
+    function onMqlChange(e:MediaQueryListEvent) {
+        setQuery(e);
+    }
+
+    function getTabIndex():number {
+        if (query.matches) {
+            return anchorsOpen ? 0 : -1;
+        }
+
+        return 0;
+    }
+
+    // eslint-disable-next-line consistent-return
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const mql = window.matchMedia(`(max-width: ${querySize}px)`);
+            mql.addEventListener('change', onMqlChange);
+
+            return () => {
+                mql.removeEventListener('change', onMqlChange);
+            };
+        }
+    }, []);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -77,6 +111,10 @@ function AppHud() {
         }
     };
 
+    function onAnchorToggleClick() {
+        setAnchorsOpen(!anchorsOpen);
+    }
+
     return (
         <header
             className={
@@ -92,26 +130,59 @@ function AppHud() {
                 <Logo className={`${baseClass}__logo-link__logo`} />
             </a>
             {pageData.pageSections.length > 0 && (
-                <nav className={`${baseClass}__anchors`}>
-                    {pageData.pageSections.map((section) => {
-                        const parentId = slugify(section.content.title);
-                        return (
-                            <a
-                                href={`#${parentId}`}
-                                key={`anchor-item-to-${parentId}`}
-                                className={classNames(
-                                    'hud__anchor', {
-                                        'hud__anchor--active': activeId === parentId,
-                                    },
-                                )}
-                                onClick={(e) => clickHandler(e)}
-                                id={`content-anchor-${parentId}`}
-                            >
-                                {section.content.title}
-                            </a>
-                        );
-                    })}
-                </nav>
+                <>
+                    {query.matches && (
+                        <Button
+                            id="anchorToggleHeader"
+                            onClick={onAnchorToggleClick}
+                            className={classNames(
+                                'hud__anchors__toggle', {
+                                    'hud__anchors__toggle--open': anchorsOpen,
+                                },
+                            )}
+                            aria-label={anchorsOpen ? 'sluit' : 'open'}
+                        >
+                            <span className="snip-visually-hidden">
+                                {`${anchorsOpen ? 'sluit' : 'open'} navigatie`}
+                            </span>
+                            <span className={`${baseClass}__anchors__toggle__icon`}>
+                                +
+                            </span>
+                        </Button>
+                    )}
+
+                    <nav
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                        tabIndex={getTabIndex()}
+                        className={
+                            classNames(
+                                'hud__anchors', {
+                                    'hud__anchors--open': query.matches && anchorsOpen,
+                                },
+                            )
+                        }
+                    >
+                        {pageData.pageSections.map((section) => {
+                            const parentId = slugify(section.content.title);
+                            return (
+                                <a
+                                    href={`#${parentId}`}
+                                    key={`anchor-item-to-${parentId}`}
+                                    className={classNames(
+                                        'hud__anchor', {
+                                            'hud__anchor--active': activeId === parentId,
+                                        },
+                                    )}
+                                    onClick={(e) => clickHandler(e)}
+                                    id={`content-anchor-${parentId}`}
+                                >
+                                    {section.content.title}
+                                </a>
+                            );
+                        })}
+                    </nav>
+                </>
+
             )}
         </header>
     );

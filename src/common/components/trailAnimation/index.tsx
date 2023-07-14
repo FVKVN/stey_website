@@ -16,8 +16,8 @@ function TrailAnimation(props:IComponentProps) {
     const trail = useTrail(items.length, {
         config: { mass: 45, tension: 2000, friction: 300 },
         opacity: inView ? 1 : 0,
-        x: inView ? 0 : 20,
-        from: { opacity: 0, x: 20 },
+        y: inView ? 0 : 50,
+        from: { opacity: 0, y: 50 },
     });
 
     return (

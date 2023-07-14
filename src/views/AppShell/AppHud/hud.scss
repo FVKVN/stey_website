@@ -33,8 +33,6 @@
             padding-bottom: 2rem;
         }
     }
-
-
 }
 
 .hud__logo-link {
@@ -48,22 +46,70 @@
     fill: $color-greyscale-000;
 }
 
-.hud__anchors {
-    display: none;
-    gap: 3rem;
+.button.hud__anchors__toggle {
+    display: flex;
+    flex: 0 0 5rem;
+    width: 5rem;
+    padding: 0;
+    aspect-ratio: 1/1;
     align-items: center;
+    justify-content: center;
+
+
+    font-size: 5rem;
+    color: $color-greyscale-000;
+}
+
+.hud__anchors__toggle__icon {
+    transition: transform .3s $snip-ease-sine-in-out;
+
+    .hud__anchors__toggle--open & {
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+}
+
+.hud__anchors {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    padding: 11rem 3rem 3rem;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    transform: translate3d(100%, 0, 0);
+
+    background: $color-greyscale-300;
+
+    transition: .3s transform $snip-ease-sine-in-out;
+
+    &--open {
+        transform: none;
+    }
 
     @media (min-width: $screen-md-min) {
-        display: flex;
+        position: static;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0;
+        transform: none;
+
+        background: transparent;
     }
 }
 
 .hud__anchor {
     position: relative;
 
-    display: inline-block;
+    display: block;
 
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     line-height: 1;
     color: $color-greyscale-000;
     text-decoration: none;
@@ -71,28 +117,38 @@
 
     &:after {
         @include snip-pseudo();
-        left: 50%;
+        left: 0;
         bottom: -.4em;
 
         height: .1em;
         width: .5rem;
-        transform: translate3d(0, -50%, 0) scaleX(0);
+        transform: scaleX(0);
+        transform-origin: 0 0;
 
         background: $color-greyscale-000;
         opacity: 0;
 
         transition: transform .5s $snip-ease-sine-in-out, opacity .3s $snip-ease-sine-in-out;
+
+        @media (min-width: $screen-md-min) {
+            left: 50%;
+
+            transform: translate3d(0, -50%, 0) scaleX(0);
+            transform-origin: center center;
+
+        }
+
     }
 
     &--active {
         &:after {
-            transform: translate3d(0, -50%, 0) scaleX(10);
+            transform: scaleX(10);
 
             opacity: 1;
-        }
-    }
 
-    @media (min-width: $screen-md-min) {
-        font-size: 1.8rem;
+            @media (min-width: $screen-md-min) {
+                transform: translate3d(0, -50%, 0) scaleX(10);
+            }
+        }
     }
 }

@@ -37,16 +37,18 @@ function PageSection({ sectionData }: IComponentProps) {
                         </figure>
                     </TrailAnimation>
                 )}
-                <TrailAnimation>
-                    <div className="page-section__body">
+                <div className="page-section__body">
+                    <TrailAnimation>
+
                         { sectionData.content.subTitle !== '' && (
                             <h3 className="page-section__sub-title">
                                 {sectionData.content.subTitle}
                             </h3>
                         )}
                         { renderContent(sectionData) }
-                    </div>
-                </TrailAnimation>
+                    </TrailAnimation>
+
+                </div>
 
             </div>
         </div>
