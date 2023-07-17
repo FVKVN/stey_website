@@ -44,48 +44,48 @@
                             "description": "Lorem ipsum dolor sit amet",
                             "coverImage": "./images/work/brons-cover.webp",
                             "images": [
-                                "brons-1.webp",
-                                "brons-1.webp",
-                                "brons-1.webp",
-                                "brons-1.webp",
-                                "brons-1.webp",
-                                "brons-1.webp"
+                                "./images/work/brons-1.webp",
+                                "./images/work/brons-1.webp",
+                                "./images/work/brons-1.webp",
+                                "./images/work/brons-1.webp",
+                                "./images/work/brons-1.webp",
+                                "./images/work/brons-1.webp"
                             ]
                         }, {
                             "type": "Steen",
                             "description": "Lorem ipsum dolor sit amet",
                             "coverImage": "./images/work/steen-cover.webp",
                             "images": [
-                                "steen-1.webp",
-                                "steen-1.webp",
-                                "steen-1.webp",
-                                "steen-1.webp",
-                                "steen-1.webp",
-                                "steen-1.webp"
+                                "./images/work/steen-1.webp",
+                                "./images/work/steen-1.webp",
+                                "./images/work/steen-1.webp",
+                                "./images/work/steen-1.webp",
+                                "./images/work/steen-1.webp",
+                                "./images/work/steen-1.webp"
                             ]
                         }, {
                             "type": "Hout",
                             "description": "Lorem ipsum dolor sit amet",
                             "coverImage": "./images/work/hout-cover.webp",
                             "images": [
-                                "hout-1.webp",
-                                "hout-1.webp",
-                                "hout-1.webp",
-                                "hout-1.webp",
-                                "hout-1.webp",
-                                "hout-1.webp"
+                                "./images/work/hout-1.webp",
+                                "./images/work/hout-1.webp",
+                                "./images/work/hout-1.webp",
+                                "./images/work/hout-1.webp",
+                                "./images/work/hout-1.webp",
+                                "./images/work/hout-1.webp"
                             ]
                         }, {
                             "type": "Tekeningen",
                             "description": "Lorem ipsum dolor sit amet",
                             "coverImage": "./images/work/tekeningen-cover.webp",
                             "images": [
-                                "tekeningen-1.webp",
-                                "tekeningen-1.webp",
-                                "tekeningen-1.webp",
-                                "tekeningen-1.webp",
-                                "tekeningen-1.webp",
-                                "tekeningen-1.webp"
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp"
                             ]
                         }
                     ]
@@ -108,9 +108,9 @@
                                 "endDate": "2018-09-02",
                                 "coverImage": "./images/expo/oeren-cover.webp",
                                 "images": [
-                                    "oeren-1.webp",
-                                    "oeren-1.webp",
-                                    "oeren-1.webp"
+                                    "./images/expo/oeren-1.webp",
+                                    "./images/expo/oeren-1.webp",
+                                    "./images/expo/oeren-1.webp"
                                 ]
                             },
                             {
@@ -119,9 +119,9 @@
                                 "endDate": "2011-07-17",
                                 "coverImage": "./images/expo/poeke-2011-cover.webp",
                                 "images": [
-                                    "poeke-1.webp",
-                                    "poeke-1.webp",
-                                    "poeke-1.webp"
+                                    "./images/expo/poeke-1.webp",
+                                    "./images/expo/poeke-1.webp",
+                                    "./images/expo/poeke-1.webp"
                                 ]
                             }
                         ]

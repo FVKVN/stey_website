@@ -76,7 +76,7 @@
     z-index: -1;
 
     padding: 11rem 3rem 3rem;
-    width: 60vw;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -135,7 +135,6 @@
 
             transform: translate3d(0, -50%, 0) scaleX(0);
             transform-origin: center center;
-
         }
 
     }

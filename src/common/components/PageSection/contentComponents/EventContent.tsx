@@ -1,6 +1,8 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState, MouseEvent } from 'react';
 import { IExpoSection, IExpoSectionDefault } from '../../../../models/pageData.model';
 import { slugify } from '../../../utils/slugify';
+import Carousel from '../../Carousel';
+import Modal from '../../Modal';
 
 interface IEventComponentProps {
     body: IExpoSection;
@@ -13,6 +15,17 @@ interface IRenderItemProps {
 
 export default function EventContent({ body }:IEventComponentProps): ReactElement {
     const { upcoming, past } = body;
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+    function handleClick(e:MouseEvent<HTMLButtonElement>):void {
+        e.preventDefault();
+
+        setModalOpen(true);
+    }
+
+    function closeModal():void {
+        setModalOpen(false);
+    }
 
     function renderItem(props : IRenderItemProps) {
         return (
@@ -20,23 +33,39 @@ export default function EventContent({ body }:IEventComponentProps): ReactElemen
                 key={`${slugify(props.item.location)}-${slugify(props.item.startDate)}`}
                 className="page-section__expo__type__item"
             >
-                <img
-                    className="page-section__expo__type__item__image"
-                    alt=""
-                    src={props.item.coverImage}
-                />
-                <div className="page-section__expo__item__content">
-                    <div className="page-section__expo__item__content__inner">
-                        <h5 className="page-section__expo__item__title">
-                            {props.item.location}
-                        </h5>
-                        <p>van: <strong>{props.item.startDate}</strong></p>
-                        <p>tot: <strong>{props.item.endDate}</strong></p>
+                <button
+                    onClick={handleClick}
+                    className="page-section__expo__type__item__toggle"
+                    type="button"
+                >
+                    <img
+                        className="page-section__expo__type__item__image"
+                        alt=""
+                        src={props.item.coverImage}
+                    />
+                    <div className="page-section__expo__item__content">
+                        <div className="page-section__expo__item__content__inner">
+                            <h5 className="page-section__expo__item__title">
+                                {props.item.location}
+                            </h5>
+                            <p>van: <strong>{props.item.startDate}</strong></p>
+                            <p>tot: <strong>{props.item.endDate}</strong></p>
+                        </div>
+                        { props.isPast && (
+                            <p className="text--right">Bekijk alle beelden <strong className="more-plus">+</strong></p>
+                        )}
                     </div>
-                    { props.isPast && (
-                        <p className="text--right">Bekijk alle beelden <strong className="more-plus">+</strong></p>
-                    )}
-                </div>
+                </button>
+                <Modal
+                    id={`${slugify(props.item.location)}-modal`}
+                    isOpen={modalOpen}
+                    onRequestClose={closeModal}
+                >
+                    <Carousel
+                        items={props.item.images}
+                        type={slugify(props.item.location)}
+                    />
+                </Modal>
             </article>
         );
     }

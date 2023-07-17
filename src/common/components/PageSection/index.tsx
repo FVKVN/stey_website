@@ -39,7 +39,6 @@ function PageSection({ sectionData }: IComponentProps) {
                 )}
                 <div className="page-section__body">
                     <TrailAnimation>
-
                         { sectionData.content.subTitle !== '' && (
                             <h3 className="page-section__sub-title">
                                 {sectionData.content.subTitle}

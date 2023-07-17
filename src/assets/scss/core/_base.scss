@@ -70,3 +70,14 @@ body {
         display: none;
     }
 }
+
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+.js-focus-visible .focus-visible {
+    outline: .2rem dashed $color-focus;
+    outline-offset: .4rem;
+
+    text-decoration: none;
+}

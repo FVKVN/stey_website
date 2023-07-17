@@ -41,8 +41,8 @@
 
     width: 760px;
     height: auto;
-    max-height: calc(100vh - #{spacing(lg)});
-    max-width: calc(100vw - #{spacing(lg)});
+    max-height: calc(100vh - 3rem);
+    max-width: calc(100vw - 3rem);
     margin: 0 auto;
     overflow: auto;
 
@@ -57,7 +57,7 @@
         position: relative;
 
         max-height: 100%;
-        padding: spacing(xl);
+        padding: 2rem;
 
         outline: none;
 
@@ -80,46 +80,42 @@
 
     @media (min-width: $screen-xs-min) {
         .modal__content {
-            padding: spacing(lg) spacing(xxl);
+            padding: 3rem;
         }
-    }
-
-    @media (min-width: $screen-md-min) {
-        max-width: calc(100% - #{spacing(xl)});
     }
 }
 
 .modal__header {
     position: sticky;
-    top: spacing(md);
-    right: spacing(md);
+    top: 3rem;
+    right: 3rem;
     z-index: 2;
 
     flex: 0 0 auto;
 
     .modal__close-button {
         position: absolute;
-        right: 0;
+        right: 3rem;
         top: 0;
 
-        padding: spacing(md);
+        padding: 1rem;
+        display: block;
 
         background: transparent;
 
         border: 0;
 
-        color: $color-greyscale-000;
+        line-height: 1;
 
         transition: color .3s ease;
 
         @include hover() {
             background: transparent;
-
-            color: $color-greyscale-100;
         }
 
         > svg {
-            width: 1rem;
+            display: inline-block;
+            width: 2rem;
 
             fill: currentColor;
         }

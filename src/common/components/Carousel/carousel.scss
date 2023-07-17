@@ -1,0 +1,11 @@
+/* ==========================================================================
+   carousel c
+   ========================================================================== */
+@import "../../../assets/scss/imports";
+
+$themeColor: $color-greyscale-300;
+
+@import "../../../../node_modules/swiper/swiper";
+@import "../../../../node_modules/swiper/modules/navigation/navigation";
+@import "../../../../node_modules/swiper/modules/pagination/pagination";
+

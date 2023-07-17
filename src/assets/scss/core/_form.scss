@@ -114,18 +114,6 @@ input:-webkit-autofill:focus {
         opacity: 0;
     }
 
-    &:focus-visible {
-        outline: .2rem dashed $color-focus;
-        outline-offset: .4rem;
-
-        text-decoration: none;
-    }
-
-    &:focus,
-    &:active {
-        border-color: $color-greyscale-300;
-    }
-
     &:not(:placeholder-shown) + span {
         transform: translate3d(0, -150%, 0);
 
@@ -133,10 +121,6 @@ input:-webkit-autofill:focus {
 
         font-weight: $font-weight--medium;
         font-size: .6em;
-    }
-
-    @include nonKeyboardfocus() {
-        outline: none;
     }
 }
 

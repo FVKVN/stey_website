@@ -10,6 +10,7 @@ import CookiesModal from '../CookiesModal';
 import AppRouter from '../AppRouter';
 import PrivacyPolicyModal from '../PrivacyPolicyModal';
 import AppFooter from '../AppFooter';
+import 'focus-visible';
 
 function App() {
     const containerRef = useRef<HTMLDivElement>(null!);
