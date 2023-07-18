@@ -3,6 +3,7 @@ import { IExpoSection, IExpoSectionDefault } from '../../../../models/pageData.m
 import { slugify } from '../../../utils/slugify';
 import Carousel from '../../Carousel';
 import Modal from '../../Modal';
+import TranslateByMousePosition from '../../TranslateByMousePosition';
 
 interface IEventComponentProps {
     body: IExpoSection;
@@ -29,9 +30,11 @@ export default function EventContent({ body }:IEventComponentProps): ReactElemen
 
     function renderItem(props : IRenderItemProps) {
         return (
-            <article
+            <TranslateByMousePosition
                 key={`${slugify(props.item.location)}-${slugify(props.item.startDate)}`}
                 className="page-section__expo__type__item"
+                modifier={20}
+                onHover
             >
                 <button
                     onClick={handleClick}
@@ -66,7 +69,8 @@ export default function EventContent({ body }:IEventComponentProps): ReactElemen
                         type={slugify(props.item.location)}
                     />
                 </Modal>
-            </article>
+            </TranslateByMousePosition>
+
         );
     }
 

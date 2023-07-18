@@ -12,6 +12,7 @@ import MediaContent from './contentComponents/MediaContent';
 import EventContent from './contentComponents/EventContent';
 import ContactContent from './contentComponents/contactComponent';
 import TrailAnimation from '../trailAnimation';
+import TranslateByMousePosition from '../TranslateByMousePosition';
 
 interface IComponentProps {
     sectionData: IPageSection;
@@ -24,17 +25,17 @@ function PageSection({ sectionData }: IComponentProps) {
         <div id={parentId} className="page-section" data-theme={sectionData.theme}>
             <div className="page-section__content">
                 <header className="page-section__header">
-                    <TrailAnimation>
-                        <h2 className="page-section__title">
-                            {sectionData.content.title}
-                        </h2>
-                    </TrailAnimation>
+                    <h2 className="page-section__title">
+                        {sectionData.content.title}
+                    </h2>
                 </header>
                 { sectionData.content.image && (
                     <TrailAnimation>
-                        <figure className="page-section__image">
-                            <img src={sectionData.content.image} alt={sectionData.content.imageAlt} />
-                        </figure>
+                        <TranslateByMousePosition>
+                            <figure className="page-section__image">
+                                <img src={sectionData.content.image} alt={sectionData.content.imageAlt} />
+                            </figure>
+                        </TranslateByMousePosition>
                     </TrailAnimation>
                 )}
                 <div className="page-section__body">

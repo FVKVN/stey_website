@@ -206,12 +206,17 @@
     display: flex;
     gap: 3rem;
     flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
 
     h4 {
         margin: 0;
     }
 
     p {
+        width: 100%;
         margin: 0;
 
         + p {
@@ -232,6 +237,7 @@
 
 .page-section__expo__item__content__inner {
     flex: 1;
+    width: 100%;
 }
 
 .page-section__expo__type__item__image {

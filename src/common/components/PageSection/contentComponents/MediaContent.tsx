@@ -3,6 +3,7 @@ import { IWorkSection } from '../../../../models/pageData.model';
 import { slugify } from '../../../utils/slugify';
 import Carousel from '../../Carousel';
 import Modal from '../../Modal';
+import TranslateByMousePosition from '../../TranslateByMousePosition';
 
 interface IWorkComponentProps {
     body: IWorkSection[];
@@ -26,9 +27,11 @@ export default function MediaContent({
     return (
         <div className="page-section__media">
             {body.map((workSection: IWorkSection) => (
-                <article
+                <TranslateByMousePosition
                     key={`home-page-section-${slugify(workSection.type)}`}
                     className="page-section__media__item"
+                    modifier={10}
+                    onHover
                 >
                     <button
                         onClick={handleClick}
@@ -59,7 +62,7 @@ export default function MediaContent({
                             type={workSection.type}
                         />
                     </Modal>
-                </article>
+                </TranslateByMousePosition>
             ))}
         </div>
     );
