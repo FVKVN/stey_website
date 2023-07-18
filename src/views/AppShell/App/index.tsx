@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useMemo, useRef, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+import AnimatedCursor from 'react-animated-cursor';
 import { injectGTMinHead, logCookieSettings, removeGTMfromHead } from '../../../common/utils/analytics/analytics';
 import { LOCAL_STORAGE_ALLOW_ANALYTICS_KEY, LOCAL_STORAGE_CONSENT_KEY } from '../../../config/state.config';
 import { AppContext, defaultAppState, IAppContextInterface, IUpdateCookieSettings } from './app.context';
@@ -65,6 +66,15 @@ function App() {
                 <CookieConsent />
                 <CookiesModal isOpen={showCookieSettings} onRequestClose={() => setShowCookieSettings(false)} />
                 <PrivacyPolicyModal isOpen={showPrivacyPolicy} onRequestClose={() => setShowPrivacyPolicy(false)} />
+                <AnimatedCursor
+                    color="169,33,0"
+                    innerSize={0}
+                    outerSize={8}
+                    innerScale={1}
+                    outerScale={10}
+                    outerAlpha={0.7}
+                    trailingSpeed={1}
+                />
             </div>
         </AppContext.Provider>
     );
