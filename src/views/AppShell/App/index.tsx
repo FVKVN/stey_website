@@ -67,7 +67,7 @@ function App() {
                 <CookiesModal isOpen={showCookieSettings} onRequestClose={() => setShowCookieSettings(false)} />
                 <PrivacyPolicyModal isOpen={showPrivacyPolicy} onRequestClose={() => setShowPrivacyPolicy(false)} />
                 <AnimatedCursor
-                    color="169,33,0"
+                    color="248, 14, 64"
                     innerSize={0}
                     outerSize={8}
                     innerScale={1}
