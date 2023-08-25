@@ -67,13 +67,21 @@ function App() {
                 <CookiesModal isOpen={showCookieSettings} onRequestClose={() => setShowCookieSettings(false)} />
                 <PrivacyPolicyModal isOpen={showPrivacyPolicy} onRequestClose={() => setShowPrivacyPolicy(false)} />
                 <AnimatedCursor
-                    color="248, 14, 64"
+                    color="255, 255, 255"
                     innerSize={0}
                     outerSize={8}
-                    innerScale={1}
+                    innerScale={0}
                     outerScale={10}
-                    outerAlpha={0.7}
+                    outerAlpha={1}
                     trailingSpeed={1}
+                    innerStyle={{
+                        mixBlendMode: 'difference',
+                        backgroundBlendMode: 'difference',
+                    }}
+                    outerStyle={{
+                        mixBlendMode: 'difference',
+                        backgroundBlendMode: 'difference',
+                    }}
                 />
             </div>
         </AppContext.Provider>

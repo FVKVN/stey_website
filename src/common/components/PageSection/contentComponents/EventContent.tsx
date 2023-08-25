@@ -1,8 +1,8 @@
-import React, { ReactElement, useState, MouseEvent } from 'react';
+import React, { ReactElement, MouseEvent } from 'react';
 import { IExpoSection, IExpoSectionDefault } from '../../../../models/pageData.model';
 import { slugify } from '../../../utils/slugify';
-import Carousel from '../../Carousel';
-import Modal from '../../Modal';
+// import Carousel from '../../Carousel';
+// import Modal from '../../Modal';
 import TranslateByMousePosition from '../../TranslateByMousePosition';
 
 interface IEventComponentProps {
@@ -16,17 +16,17 @@ interface IRenderItemProps {
 
 export default function EventContent({ body }:IEventComponentProps): ReactElement {
     const { upcoming, past } = body;
-    const [modalOpen, setModalOpen] = useState<boolean>(false);
+    // const [modalOpen, setModalOpen] = useState<boolean>(false);
 
     function handleClick(e:MouseEvent<HTMLButtonElement>):void {
         e.preventDefault();
 
-        setModalOpen(true);
+        // setModalOpen(true);
     }
 
-    function closeModal():void {
-        setModalOpen(false);
-    }
+    // function closeModal():void {
+    //     setModalOpen(false);
+    // }
 
     function renderItem(props : IRenderItemProps) {
         return (
@@ -59,7 +59,7 @@ export default function EventContent({ body }:IEventComponentProps): ReactElemen
                         )}
                     </div>
                 </button>
-                <Modal
+                {/* <Modal
                     id={`${slugify(props.item.location)}-modal`}
                     isOpen={modalOpen}
                     onRequestClose={closeModal}
@@ -68,7 +68,7 @@ export default function EventContent({ body }:IEventComponentProps): ReactElemen
                         items={props.item.images}
                         type={slugify(props.item.location)}
                     />
-                </Modal>
+                </Modal> */}
             </TranslateByMousePosition>
 
         );

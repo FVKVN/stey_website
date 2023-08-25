@@ -33,13 +33,14 @@ function TranslateByMousePosition(props: IComponentProps) {
     const [mousePosition, setMousePosition] = useSpring(() => ({
         xy: [0, 0],
     }));
-    const modifier = props.modifier ? props.modifier : 20;
+    const modifier = props.modifier ? props.modifier : 10;
     const [isInBounds, setIsInBounds] = useState<boolean>(false);
     const shouldCheckHover = props.onHover;
 
     function handleMouseMove(e: MouseEvent):void {
         const x = e.clientX;
         const y = e.clientY;
+        const rect = ref.current.getBoundingClientRect();
 
         if (shouldCheckHover) {
             setIsInBounds(checkInBounds({ x, y, ref }));
@@ -49,8 +50,8 @@ function TranslateByMousePosition(props: IComponentProps) {
 
         const xy = inView && isInBounds
             ? [
-                -((x - ref.current.clientWidth) / 2) / modifier,
-                -((y - ref.current.clientHeight) / 2) / modifier,
+                -((x - rect.left) / 2) / modifier,
+                -((y - rect.top) / 2) / modifier,
             ] : [0, 0];
 
         setMousePosition({

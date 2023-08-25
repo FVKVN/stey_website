@@ -87,6 +87,30 @@
                                 "./images/work/tekeningen-1.webp",
                                 "./images/work/tekeningen-1.webp"
                             ]
+                        }, {
+                            "type": "Klei",
+                            "description": "Lorem ipsum dolor sit amet",
+                            "coverImage": "./images/work/tekeningen-cover.webp",
+                            "images": [
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp"
+                            ]
+                        }, {
+                            "type": "Juwelen",
+                            "description": "Lorem ipsum dolor sit amet",
+                            "coverImage": "./images/work/tekeningen-cover.webp",
+                            "images": [
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp",
+                                "./images/work/tekeningen-1.webp"
+                            ]
                         }
                     ]
                 }

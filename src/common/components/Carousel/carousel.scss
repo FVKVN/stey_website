@@ -9,3 +9,15 @@ $themeColor: $color-greyscale-300;
 @import "../../../../node_modules/swiper/modules/navigation/navigation";
 @import "../../../../node_modules/swiper/modules/pagination/pagination";
 
+.slider {
+    height: 100%;
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+}

@@ -12,6 +12,7 @@ export default function Carousel(props: IComponentprops) {
     const { items, type } = props;
     return (
         <Swiper
+            className="slider"
             modules={[Navigation, Pagination, A11y]}
             slidesPerView={1}
             navigation
