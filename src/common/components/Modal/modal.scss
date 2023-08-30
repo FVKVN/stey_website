@@ -123,10 +123,17 @@
 
 .workModal .modal__content {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
+}
+
+.workModal .modal__close-button {
+    color: $color-text;
 }
 
 .workModal__inner {
     width: 60%;
 }
 
+.workModal__type-title {
+    margin: 0 0 3rem;
+}

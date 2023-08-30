@@ -16,6 +16,7 @@ export default function MediaContent({
         <div className="page-section__media">
             {body.map((workSection: IWorkSection) => (
                 <MediaItem
+                    key={workSection.type}
                     type={workSection.type}
                     description={workSection.description}
                     images={workSection.images}

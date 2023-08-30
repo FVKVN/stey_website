@@ -8,6 +8,7 @@
 
 .CookiesModal {
     height: 90%;
+    width: 60%;
 
     color: $color-text;
 
@@ -18,10 +19,13 @@
             margin: 0;
 
             font-size: 10ch;
+            color: $color-text;
         }
 
         h3 {
-            font-size: 8ch;
+            margin: 4rem  0 0;
+
+            font-size: 7ch;
         }
     }
 }
