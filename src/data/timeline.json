@@ -1,11 +1,92 @@
 [
     {
-        "date": "2 april 1933",
-        "description": "Geboren als derde van vier kinderen te Maria-Aalter.",
-        "images": []
-    },{
-        "date": "1958",
-        "description": "Gehuwd met Hélène Maene",
-        "images": []
+        "id": "1",
+        "date": "January 15, 1980",
+        "description": "The artist came into the world on a frosty morning, bringing with them the potential for creative brilliance and artistic expression that would later captivate the world.",
+        "images": ["https://loremflickr.com/320/240/painting?random=1"]
+    },
+    {
+        "id": "2",
+        "date": "June 5, 1995",
+        "description": "With nervous excitement, the artist presented their very first artworks to the public. The debut exhibition marked the start of a journey filled with colors, shapes, and a deep passion for self-expression.",
+        "images": ["https://loremflickr.com/320/240/exhibition?random=2", "https://loremflickr.com/320/240/exhibition?random=3"]
+    },
+    {
+        "id": "3",
+        "date": "September 20, 2002",
+        "description": "Amidst cheers and applause, the artist proudly graduated from art school, armed with newfound skills and a dedication to push the boundaries of their creativity further than ever before.",
+        "images": ["https://loremflickr.com/320/240/graduation?random=4"]
+    },
+    {
+        "id": "4",
+        "date": "March 10, 2005",
+        "description": "The artist's innovative vision and exceptional talent were recognized on a national level as they received the prestigious National Art Award, solidifying their place in the artistic realm.",
+        "images": ["https://loremflickr.com/320/240/award?random=5"]
+    },
+    {
+        "id": "5",
+        "date": "August 30, 2008",
+        "description": "A milestone achievement, the opening of the artist's solo gallery exhibition drew art enthusiasts from all corners. The gallery walls breathed life into their creations, sharing stories with every stroke.",
+        "images": ["https://loremflickr.com/320/240/gallery?random=6", "https://loremflickr.com/320/240/gallery?random=7"]
+    },
+    {
+        "id": "6",
+        "date": "November 5, 2010",
+        "description": "The artist's influence expanded beyond canvas and brushstrokes with the publication of their first art book. Pages filled with insights, techniques, and a visual narrative of their artistic journey.",
+        "images": ["https://loremflickr.com/320/240/book?random=8"]
+    },
+    {
+        "id": "7",
+        "date": "April 18, 2013",
+        "description": "A defining moment arrived as one of the artist's masterpieces took center stage in a major international exhibition. The art world marveled at their ingenuity and thought-provoking creations.",
+        "images": ["https://loremflickr.com/320/240/exhibition?random=9"]
+    },
+    {
+        "id": "8",
+        "date": "June 22, 2015",
+        "description": "The halls of a renowned museum welcomed the artist's work into their collection, a testament to the lasting impact and cultural significance of their artistry on society.",
+        "images": ["https://loremflickr.com/320/240/museum?random=10", "https://loremflickr.com/320/240/museum?random=11"]
+    },
+    {
+        "id": "9",
+        "date": "December 3, 2017",
+        "description": "Beyond the canvas, the artist's voice resonated as they took the stage as a guest speaker at an international art symposium, sharing insights that ignited dialogues and inspired minds.",
+        "images": ["https://loremflickr.com/320/240/symposium?random=12"]
+    },
+    {
+        "id": "10",
+        "date": "March 8, 2020",
+        "description": "Embracing the digital age, the artist initiated online art workshops, connecting with a global audience. Virtual spaces became classrooms where creativity and learning knew no boundaries.",
+        "images": ["https://loremflickr.com/320/240/workshop?random=13"]
+    },
+    {
+        "id": "11",
+        "date": "September 10, 2022",
+        "description": "A pinnacle of recognition, the artist was honored with a Lifetime Achievement Award for their exceptional contributions to the arts. A celebration of a remarkable journey that inspired generations.",
+        "images": ["https://loremflickr.com/320/240/award?random=14"]
+    },
+    {
+        "id": "12",
+        "date": "May 21, 2023",
+        "description": "Art transcended its aesthetic as the artist's work was auctioned for a noble cause, uniting creativity and compassion. The charity art auction raised funds to bring positive change to the world.",
+        "images": ["https://loremflickr.com/320/240/auction?random=15", "https://loremflickr.com/320/240/auction?random=16"]
+    },
+    {
+        "id": "13",
+        "date": "August 2, 2025",
+        "description": "The cityscape transformed as a public art installation was unveiled, a monumental creation that transformed ordinary spaces into realms of imagination and wonder.",
+        "images": ["https://loremflickr.com/320/240/installation?random=17"]
+    },
+    {
+        "id": "14",
+        "date": "November 14, 2028",
+        "description": "A culmination of a lifelong journey, the artist's solo retrospective exhibition invited the world to relive their evolution, connecting the dots between each brushstroke and expression.",
+        "images": ["https://loremflickr.com/320/240/exhibition?random=18", "https://loremflickr.com/320/240/exhibition?random=19"]
+    },
+    {
+        "id": "15",
+        "date": "April 30, 2030",
+        "description": "With heavy hearts, the world bid farewell to an artistic luminary. The artist's legacy lives on, forever woven into the fabric of art history and the hearts of those who cherished their creations.",
+        "images": ["https://loremflickr.com/320/240/memorial?random=20"]
     }
 ]

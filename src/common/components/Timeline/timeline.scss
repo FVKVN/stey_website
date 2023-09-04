@@ -1,0 +1,99 @@
+/* ==========================================================================
+   timeline
+   ========================================================================== */
+@import '../../../assets/scss/imports';
+
+.Timeline {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    bottom: 0;
+    z-index: 400;
+
+    width: 60%;
+    overflow: hidden;
+
+    background: $color-greyscale-000;
+
+    transition: translate .3s $snip-ease-sine-in-out;
+
+    &--open {
+        translate: -100%;
+    }
+}
+
+.Timeline__inner {
+    height: 100%;
+    overflow: auto;
+
+    color: $color-greyscale-300;
+
+    p {
+        color: inherit;
+    }
+}
+
+.TimelineToggle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 300;
+
+    padding: 0;
+    transform: translate3d(100%, -50%, 0);
+
+    background-color: transparent;
+
+    will-change: transform;
+    transition: transform .3s $snip-ease-sine-in-out;
+
+    &:not(:disabled) {
+        @include hover-focus() {
+            transform: translate3d(0, -50%, 0);
+        }
+
+        &:active {
+            background-color: $color-greyscale-000;
+        }
+    }
+}
+
+.TimelineToggle__text,
+.TimelineToggle__icon-holder {
+    background: $color-greyscale-000;
+
+    border: .4rem solid $color-greyscale-300;
+}
+
+.TimelineToggle__icon-holder {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: calc(100% - 1px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .9em .9em .9em 1.2em;
+
+    border-top-left-radius: .9em;
+    border-bottom-left-radius: .9em;
+    border-right: 0;
+
+    fill: $color-greyscale-300;
+}
+
+.TimelineToggle__text {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .9em 1.4em .9em 0;
+
+    border-left: 0;
+    border-right: 0;
+
+    font-size: .9em;
+    text-transform: uppercase;
+    line-height: 1;
+}
