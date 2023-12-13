@@ -47,7 +47,7 @@ export default function AppFooter() {
                     </Button>
                 </p>
                 <p className={`${baseClass}__item`}>
-                    Created by <a href="mailto:hey@fvkvn.be">FVKVN</a>
+                    Created by <a href="https://www.fvkvn.be">FVKVN</a>
                 </p>
             </div>
         </footer>
